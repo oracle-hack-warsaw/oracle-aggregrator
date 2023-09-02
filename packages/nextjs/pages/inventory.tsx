@@ -33,7 +33,6 @@ const Inventory: NextPage = () => {
       const duration = moment.duration(lockedUntil.diff(now));
 
       if (duration.asMilliseconds() > 0) {
-        const minutesRemaining = duration.asMinutes();
         const humanReadableDuration = duration.humanize();
 
         setModalContent({
@@ -41,12 +40,20 @@ const Inventory: NextPage = () => {
           message: `You cannot unlock this NFT because it is rented until ${lockedUntil.format('LLL')}. Time remaining: ${humanReadableDuration}.`,
         });
       } else {
+        // for presentation purpose
+        console.error('Incorrect lockedUntil data for NFT:', nft);
+
+        const absoluteDuration = moment.duration(Math.abs(duration.asMilliseconds()));
+        const humanReadableDuration = absoluteDuration.humanize();
+
         setModalContent({
-          title: 'Error',
-          message: 'Something went wrong with this NFT.',
+          title: 'NFT Locked',
+          message: `You cannot unlock this NFT because it is rented until ${lockedUntil.format('LLL')}. Time elapsed: ${humanReadableDuration}.`,
         });
       }
-    } else {
+    }
+
+    else {
       setModalContent({
         title: 'Use NFT',
         message: `Use this NFT for oracle feed. Provide smart contract address that will use this nft to have access to oracle ${nft.oracleDisplayName} with feed data ${nft.dataFeedDisplayName}`,
