@@ -52,7 +52,7 @@ Execute minting script
 
 - [devpost](https://devpost.com/software/oracle-aggregator)
 - [presentation slides](https://docs.google.com/presentation/d/1VX5CuagIlJY3jI_LOm5ACR58CmpsCqlnDqI-QlLJnHw)
-- [demo video](youtube.com)
+- [demo video: TODO](youtube.com)
 
 ## Team
 
@@ -61,3 +61,7 @@ This project was build at EthWarsaw 2023 by:
 - [Alexe Spataru](twitter.com/urataps/)
 - [arjanjohan](twitter.com/arjanjohan/)
 - [Aleksander Wójcik](linkedin.com/in/aleksanderwojcik/)
+
+## License
+
+This project is licensed using GPLv3. The project is initialized using Scaffold-ETH 2 by BuidlGuidl.
