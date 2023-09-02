@@ -16,7 +16,8 @@ const Oracles: NextPage = () => {
   return (
       <>
         <MetaHeader title="G.O.A.T | Oracles" description="Available Oracles.">
-          {/* ... */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
         </MetaHeader>
         <div className="container mx-auto p-8 w-full">
           <table className="w-full">
