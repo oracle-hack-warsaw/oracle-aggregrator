@@ -2,7 +2,7 @@
 
 Groundbreaking Oracle Aggregator Technology (in short, GOAT) is a decentralized oracle aggregator service. GOAT allows token holders access to selected oracles. Users can mint or rent an NFT, which then can be connected to a smart contract to access the oracle's data feeds. This solution is innovative as it allows end users to access different oracle providers trough a single source (GOAT). 
 
-⚙️ Built using Solidity NextJS, RainbowKit, Hardhat, Wagmi, and Typescript.
+⚙️ Built using Solidity, NextJS, Hardhat, and Typescript.
 
 - 📃 **Smart contracts**: Using ERC721A, ERC4907A and ERC6982.
 - 🔮 **Connected to oracles**: End users can access different oracles via GOAT.
@@ -18,6 +18,7 @@ Groundbreaking Oracle Aggregator Technology (in short, GOAT) is a decentralized 
 
 - [Ethereum Sepolia](https://etherscan.io/address/0x)
 - [Mantle testnet](https://explorer.testnet.mantle.xyz/address/0x)
+- [Celo testnet](https://explorer.testnet.mantle.xyz/address/0x)
 
 ## Links
 
