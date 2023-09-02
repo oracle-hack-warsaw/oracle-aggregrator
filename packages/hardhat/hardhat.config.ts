@@ -119,10 +119,36 @@ const config: HardhatUserConfig = {
       chainId: 44787
     },
   },
-  verify: {
-    etherscan: {
-      apiKey: `${etherscanApiKey}`,
+  etherscan: {
+    apiKey: {
+      sepolia: 'FN1NSQ23ZPJ992WT9C4GNWA2RNAJDTGQX6',
     },
+    customChains: [
+      {
+        network: 'scroll',
+        chainId: 534353,
+        urls: {
+          apiURL: 'https://blockscout.scroll.io/api',
+          browserURL: 'https://blockscout.scroll.io/',
+        },
+      },
+      {
+        network: 'taiko',
+        chainId: 167005,
+        urls: {
+          apiURL: 'https://explorer.test.taiko.xyz/api',
+          browserURL: 'https://explorer.test.taiko.xyz',
+        },
+      },
+      {
+        network: 'mantle',
+        chainId: 5001,
+        urls: {
+          apiURL: 'https://explorer.testnet.mantle.xyz/api',
+          browserURL: 'https://explorer.testnet.mantle.xyz',
+        },
+      },
+    ],
   },
 };
 
