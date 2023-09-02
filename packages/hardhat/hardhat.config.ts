@@ -107,6 +107,15 @@ const config: HardhatUserConfig = {
     baseGoerli: {
       url: "https://goerli.base.org",
       accounts: [deployerPrivateKey],
+    },    
+    mantleTestnet: {
+      url: 'https://rpc.testnet.mantle.xyz',
+      accounts: [deployerPrivateKey],
+    },
+    alfajores: {
+      url: "https://alfajores-forno.celo-testnet.org",
+      accounts: [deployerPrivateKey],
+      chainId: 44787
     },
   },
   verify: {
