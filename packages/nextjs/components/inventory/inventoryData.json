@@ -1,83 +1,92 @@
 [
   {
-    "oracleDisplayName" : "Chronicle",
+    "oracleDisplayName": "Chronicle",
     "dataFeedDisplayName": "BTC/USD",
     "imgSrc": "/assets/chronicle.png",
     "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": true,
-    "lockedUntil" : 1793680201008
+    "tokenId": 0,
+    "lockedUntil": 1793680201008
   },
   {
-    "oracleDisplayName" : "Chronicle",
+    "oracleDisplayName": "Chronicle",
+    "dataFeedDisplayName": "ETH/USD",
+    "imgSrc": "/assets/chronicle.png",
+    "rentedTo": "0xf9423e34eA3fF46a6f6EF42Cf9821aF9A55cEa82",
+    "locked": false,
+    "tokenId": 1,
+    "lockedUntil": 0
+  },
+  {
+    "oracleDisplayName": "Chronicle",
     "dataFeedDisplayName": "BTC/USD",
     "imgSrc": "/assets/chronicle.png",
     "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": false,
-    "lockedUntil" : 0
+    "tokenId": 2,
+    "lockedUntil": 0
   },
   {
-    "oracleDisplayName" : "Chronicle",
-    "dataFeedDisplayName": "BTC/USD",
-    "imgSrc": "/assets/chronicle.png",
-    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
-    "locked": false,
-    "lockedUntil" : 0
-  },
-  {
-    "oracleDisplayName" : "Red Stone",
+    "oracleDisplayName": "Red Stone",
     "dataFeedDisplayName": "BTC/ETH",
     "imgSrc": "/assets/redstone.png",
     "rentedTo": "0x0",
     "locked": false,
-    "lockedUntil" : 0
+    "tokenId": 3,
+    "lockedUntil": 0
   },
   {
-    "oracleDisplayName" : "Red Stone",
+    "oracleDisplayName": "Red Stone",
     "dataFeedDisplayName": "BTC/ETH",
     "imgSrc": "/assets/redstone.png",
     "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": true,
-    "lockedUntil" : 1693680001008
+    "tokenId": 4,
+    "lockedUntil": 1693680001008
   },
   {
-    "oracleDisplayName" : "Red Stone",
+    "oracleDisplayName": "Red Stone",
     "dataFeedDisplayName": "BTC/ETH",
     "imgSrc": "/assets/redstone.png",
     "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": false,
-    "lockedUntil" : 0
+    "tokenId": 5,
+    "lockedUntil": 0
   },
   {
-    "oracleDisplayName" : "Chainlink",
+    "oracleDisplayName": "Chainlink",
     "dataFeedDisplayName": "BTC/USD",
     "imgSrc": "/assets/chainlink.jpg",
     "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": true,
-    "lockedUntil" : 1693690001008
+    "tokenId": 6,
+    "lockedUntil": 1693690001008
   },
   {
-    "oracleDisplayName" : "Chainlink",
+    "oracleDisplayName": "Chainlink",
     "dataFeedDisplayName": "BTC/ETH",
     "imgSrc": "/assets/chainlink.jpg",
     "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": true,
-    "lockedUntil" : 1693680201008
-
+    "tokenId": 7,
+    "lockedUntil": 1693680201008
   },
   {
-    "oracleDisplayName" : "Chronicle",
+    "oracleDisplayName": "Nameless",
     "dataFeedDisplayName": "BTC/ETH",
     "imgSrc": "/assets/nameless.png",
     "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": false,
-    "lockedUntil" : 0
+    "tokenId": 8,
+    "lockedUntil": 0
   },
   {
-    "oracleDisplayName" : "Nameless Oracle Provider",
+    "oracleDisplayName": "Nameless",
     "dataFeedDisplayName": "BTC/ETH",
     "imgSrc": "/assets/nameless.png",
     "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": true,
-    "lockedUntil" : 1693680001008
+    "tokenId": 9,
+    "lockedUntil": 1693680001008
   }
 ]
