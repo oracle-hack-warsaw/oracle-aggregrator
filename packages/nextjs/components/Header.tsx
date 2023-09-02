@@ -44,19 +44,27 @@ export const Header = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink href="/">Home</NavLink>
+        <NavLink href="/">
+          <div className="flex items-center hover:bg-secondary hover:shadow-md focus:bg-secondary py-1.5 px-3 text-sm rounded-full gap-2">
+            <span className="align-middle">Home</span>
+          </div>
+        </NavLink>
       </li>
 
       <li>
         <NavLink href="/oracles">
-          <CubeTransparentIcon className="h-4 w-4" />
-          Oracles
+          <div className="flex items-center hover:bg-secondary hover:shadow-md focus:bg-secondary py-1.5 px-3 text-sm rounded-full gap-2">
+            <CubeTransparentIcon className="h-4 w-4 inline-block align-middle" />
+            <span className="align-middle">Oracles</span>
+          </div>
         </NavLink>
       </li>
       <li>
         <NavLink href="/inventory">
-          <Square3Stack3DIcon className="h-4 w-4" />
-          Inventory
+          <div className="flex items-center hover:bg-secondary hover:shadow-md focus:bg-secondary py-1.5 px-3 text-sm rounded-full gap-2">
+            <Square3Stack3DIcon className="h-4 w-4 inline-block align-middle" />
+            <span className="align-middle">Inventory</span>
+          </div>
         </NavLink>
       </li>
       {/* <li>

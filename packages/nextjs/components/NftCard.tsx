@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { abi as GOATabi } from "../../hardhat/artifacts/contracts/GOAT.sol/GOAT.json";
+import { abi as GOATabi } from "~~/generated/GOAT.json";
 import { GOAT_ADDRESS } from "../pages/oracles";
 import { useContractRead } from "wagmi";
 

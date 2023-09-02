@@ -9,7 +9,7 @@ const Home: NextPage = () => {
     <>
       <MetaHeader />
       <div className="container mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-6">🐐 Welcome to G.O.A.T. - Groundbreaking Oracle Aggregator Technology</h1>
+        <h1 className="text-3xl font-bold mb-6">🐐 G.O.A.T. - Groundbreaking Oracle Aggregator Technology</h1>
 
         <div className="highlighted-section p-4 rounded-lg border-2 border-gray-300">
           <p className="mb-4">
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
 
 
           <p className="mt-4">
-            So, what exactly is G.O.A.T.? We're a Groundbreaking Oracle Aggregator Technology. Through us, users can access various oracles from a single entry point, compare pricing, and make informed choices. On the flip side, oracle providers get a transparent platform to price their services based on real demand. As we stride forward, our goals are clear: to enhance product-market fit, incorporate as many Oracle Providers as possible, and cement the innovative idea of using NFTs for data feed access. The future looks promising, and with G.O.A.T., it looks revolutionary.
+            So, what exactly is G.O.A.T.? We're a Groundbreaking Oracle Aggregator Technology. Through G.O.A.T., users can access various oracles from a single entry point, compare pricing, and make informed choices. On the flip side, oracle providers get a transparent platform to price their services based on real demand. As we stride forward, our goals are clear: to enhance product-market fit, incorporate as many Oracle Providers as possible, and cement the innovative idea of using NFTs for data feed access. The future looks promising, and with G.O.A.T., it looks revolutionary.
           </p>
         </div>
 
