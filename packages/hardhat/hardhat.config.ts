@@ -1,3 +1,4 @@
+import "./tasks/deploy";
 import "./tasks/kiss";
 import "@matterlabs/hardhat-zksync-solc";
 import "@matterlabs/hardhat-zksync-verify";
