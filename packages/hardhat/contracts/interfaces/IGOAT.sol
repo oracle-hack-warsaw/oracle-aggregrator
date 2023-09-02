@@ -2,7 +2,19 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 interface IGOAT {
-    event GOATMinted(address indexed to, uint256[] tokenIds, address[] oracles);
+    event GOATMinted(address indexed to, uint256[] tokenIds, OracleId[] oracles);
+
+    event OraclesAdded(address[] oracles, OracleProvider providerId);
+
+    enum OracleProvider {
+		Chronicle,
+		Chainlink
+	}
+
+	struct OracleId {
+		address oracle;
+		OracleProvider providerId;
+	}
 
     function decimals() external view returns(uint8);
 
