@@ -5,13 +5,23 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import { IERC6982 } from "./IERC6982.sol";
+import { IERC4907 } from "./IERC4907.sol";
 import "erc721a/contracts/ERC721A.sol";
 
-contract GoatToken is ERC721A, IERC6982, Ownable {
+contract GoatToken is ERC721A, IERC6982, IERC4907, Ownable {
     using Counters for Counters.Counter;
 
+	// Mapping to contract which accesses the oracle
 	mapping(uint256 => address) public tokenIdToTargetContract;
+
+	// Mapping for locking
 	mapping(uint256 => bool) public tokenIdToLockStatus;
+	
+	// Mapping for renting
+	mapping(uint256 => address) public tokenIdToUser;
+	mapping(uint256 => uint256) public tokenIdToExpires;
+
+	// On-chain metadata
 	mapping(uint256 => string) public tokenIdToOracleName;
 	mapping(uint256 => string) public tokenIdToTokenPair;
 	bool public defaultLockedStatus;
@@ -42,6 +52,14 @@ contract GoatToken is ERC721A, IERC6982, Ownable {
 
 	function defaultLocked() external view returns (bool){
 		return defaultLockedStatus;
+	}
+	
+    function userOf(uint256 tokenId) external view returns(address) {
+		return tokenIdToUser[tokenId];
+	}
+
+    function userExpires(uint256 tokenId) external view returns(uint256){
+		return tokenIdToExpires[tokenId];
 	}
 
     // ========================================
@@ -77,5 +95,10 @@ contract GoatToken is ERC721A, IERC6982, Ownable {
 		lockToken(tokenId, address(0));
 	}
 
+	// Renting out an nft 
+    function setUser(uint256 tokenId, address user, uint64 expires) external {
+		tokenIdToUser[tokenId] = user;
+		tokenIdToExpires[tokenId] = expires;
+	}
 
 }
