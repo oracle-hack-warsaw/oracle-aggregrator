@@ -9,13 +9,21 @@ const Inventory: NextPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
   const [contractAddress, setContractAddress] = useState('');
+  const handleProceed = (e) => {
+    alert('now proceed to metamask')
+  };
   const handleInputChange = (e) => {
     setContractAddress(e.target.value);
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setContractAddress(''); // Resetting the contractAddress state
+  };
+
   const isValidAddress = () => {
     // checks if the string starts with "0x" and followed by at least one character
-    console.log(contractAddress + ' ' + /^0x.+/.test(contractAddress))
+    // console.log(contractAddress + ' ' + /^0x.+/.test(contractAddress))
     return /^0x.+/.test(contractAddress);
   };
   const handleNftClick = (nft) => {
@@ -87,12 +95,19 @@ const Inventory: NextPage = () => {
               </div>
           ))}
         </div>
-        {showModal && <Modal content={modalContent} onClose={() => setShowModal(false)} isValidAddress={isValidAddress} handleInputChange={handleInputChange} />}
+        {showModal &&
+            <Modal
+                content={modalContent}
+                onClose={handleCloseModal}
+                isValidAddress={isValidAddress}
+                handleInputChange={handleInputChange}
+                handleProceed={handleProceed}
+            />}
       </>
   );
 };
 
-function Modal({ content, onClose, isValidAddress, handleInputChange }) {
+function Modal({ content, onClose, isValidAddress, handleInputChange, handleProceed}) {
   return (
       <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
         <div className="modal-content">
@@ -110,7 +125,9 @@ function Modal({ content, onClose, isValidAddress, handleInputChange }) {
               />
           ) : null}
 
-          {content.isUnlocked && <button className="btn-proceed" disabled={!isValidAddress()}>Proceed</button>}
+          {content.isUnlocked &&
+              <button className="btn-proceed" disabled={!isValidAddress()} onClick={handleProceed}>Proceed</button>
+          }
           <button onClick={onClose} className="btn-close">Close</button>
         </div>
       </div>
