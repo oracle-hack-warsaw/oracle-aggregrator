@@ -11,20 +11,35 @@ Groundbreaking Oracle Aggregator Technology (in short, GOAT) is a tokenized orac
 
 ## Contents
 
+- [Hackathon bounties](#hackathon-bounties)
 - [Deployment](#deployment)
 - [Contracts addresses](#contracts-addresses)
 - [Links](#links)
 - [Team](#team)
 
+## Hackathon bounties
+
+#### Chronicle
+- Our use-case is innovative and interesting for Chronicle Protocol as it provides oracle providers a way to monetize their services in a fair and demand-based way. Also it makes it oracles more accesible, it aggregating them in a single place is a huge UX improvement for users.
+- [Chronicle integrated in smart contract deployed on Ethereum Sepolia testnet](https://twitter.com/arjanjohan/status/1698071677416972377)
+#### Mantle
+- [Post on Twitter mentioning @0xMantle](https://twitter.com/arjanjohan/status/1698071677416972377)
+- [Smart contract on Mantle testnet](https://explorer.testnet.mantle.xyz/address/0x385d55e3e0cE503526380b40523f41D8290B4793)
+#### Celo
+- [Smart contract on Celo testnet](https://alfajores.celoscan.io/address/0x82C993811B40609c5Dc3380E7Eb8c4BcAc42D46c)
+
 ## Deployment
 
 To deploy
+
 `yarn hardhat deploy-goat --oracle-config C:\git\oracle-aggregrator\packages\hardhat\oracles\sepolia.json --network <NETWORK_NAME>`
 
 To verify
+
 `yarn hardhat verify <GOAT_ADDRESS> --network <NETWORK_NAME>`
 
 Execute minting script
+
 `yarn hardhat mint --goat <GOAT_ADDRESS> --oracle-provider 0 --oracle <ORACLE_ADDRESS> --network <NETWORK_NAME>`
 
 ## Contracts addresses
