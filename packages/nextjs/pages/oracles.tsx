@@ -1,23 +1,13 @@
 import { useCallback, useState } from "react";
-import { abi as GOATabi } from "../../hardhat/artifacts/contracts/GOAT.sol/GOAT.json";
 import moment from "moment";
 import type { NextPage } from "next";
-import { parseEther } from "viem";
-import { useAccount, useContractWrite } from "wagmi";
 import { MetaHeader } from "~~/components/MetaHeader";
+import MintButton from "~~/components/MintButton";
 import oracleData from "~~/components/oracles/oracleData.json";
 
-const GOAT_ADDRESS = "0x085039d9644736b5970ae5BeE3B1DD56D00A9f0B";
+export const GOAT_ADDRESS = "0x085039d9644736b5970ae5BeE3B1DD56D00A9f0B";
 
 const Oracles: NextPage = () => {
-  const account = useAccount();
-
-  const { write: mintGoat } = useContractWrite({
-    abi: GOATabi,
-    address: GOAT_ADDRESS,
-    functionName: "mintGOAT",
-  });
-
   const doRent = useCallback(() => {
     // Placeholder for renting logic
   }, []);
@@ -114,25 +104,7 @@ const Oracles: NextPage = () => {
                       <td className="p-4 border-b-2">{moment(feed.lastUpdatedLong).fromNow()}</td>
                       <td className="p-4 border-b-2">{feed.displayMintPrice}</td>
                       <td className="p-4 border-b-2 flex justify-between items-center">
-                        <button
-                          onClick={() =>
-                            mintGoat({
-                              args: [
-                                account.address,
-                                [
-                                  {
-                                    oracle: feed.address,
-                                    providerId: oracle.providerId,
-                                  },
-                                ],
-                              ],
-                              value: parseEther("0.01"),
-                            })
-                          }
-                          className="btn btn-accent w-1/2 relative mr-2"
-                        >
-                          Mint
-                        </button>
+                        <MintButton oracleAddress={feed.address} providerId={oracle.providerId} />
                         <button onClick={doRent} className="btn btn-secondary w-1/2 relative" disabled>
                           <span className="tooltip ml-2" title="Minimal design - will work in future">
                             Rent
