@@ -2,9 +2,10 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Bars3Icon, BugAntIcon, MagnifyingGlassIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, BugAntIcon, MagnifyingGlassIcon, SparklesIcon, CubeTransparentIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import {FolderOpenIcon, IdentificationIcon, QueueListIcon, Square3Stack3DIcon} from '@heroicons/react/20/solid';
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const router = useRouter();
@@ -39,34 +40,23 @@ export const Header = () => {
       <li>
         <NavLink href="/">Home</NavLink>
       </li>
+
       <li>
-        <NavLink href="/debug">
-          <BugAntIcon className="h-4 w-4" />
-          Debug Contracts
+        <NavLink href="/oracles">
+          <CubeTransparentIcon className="h-4 w-4" />
+          Oracles
         </NavLink>
       </li>
       <li>
-        <NavLink href="/example-ui">
-          <SparklesIcon className="h-4 w-4" />
-          Example UI
+        <NavLink href="/inventory">
+          <Square3Stack3DIcon className="h-4 w-4" />
+          Inventory
         </NavLink>
       </li>
       <li>
         <NavLink href="/blockexplorer">
           <MagnifyingGlassIcon className="h-4 w-4" />
           Block Explorer
-        </NavLink>
-      </li>
-      <li>
-        <NavLink href="/oracles">
-          <MagnifyingGlassIcon className="h-4 w-4" />
-          Oracles
-        </NavLink>
-      </li>
-      <li>
-        <NavLink href="/inventory">
-          <MagnifyingGlassIcon className="h-4 w-4" />
-          Inventory
         </NavLink>
       </li>
     </>
@@ -97,15 +87,12 @@ export const Header = () => {
             </ul>
           )}
         </div>
-        <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6">
+        <div className="hidden lg:flex items-center gap-2 ml-4 mr-6">
           <div className="flex relative w-10 h-10">
-            <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
+        <Image alt="GOAT logo"  fill src="/assets/goat_logo.jpeg" />
           </div>
-          <div className="flex flex-col">
-            <span className="font-bold leading-tight">Scaffold-eth</span>
-            <span className="text-xs">Ethereum dev stack</span>
-          </div>
-        </Link>
+        </div>
+
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">{navLinks}</ul>
       </div>
       <div className="navbar-end flex-grow mr-4">
