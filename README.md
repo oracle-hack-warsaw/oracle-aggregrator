@@ -59,7 +59,7 @@ Execute minting script
 
 - [devpost](https://devpost.com/software/oracle-aggregator)
 - [presentation slides](https://docs.google.com/presentation/d/1VX5CuagIlJY3jI_LOm5ACR58CmpsCqlnDqI-QlLJnHw)
-- [demo video: TODO](youtube.com)
+- [demo video](https://www.youtube.com/watch?v=BbElPvCvs4I)
 - [vercel live app](https://oracle-aggregrator-nextjs-aleksanderw1992-hackathon-warsaw-2023.vercel.app)
 
 ## Team
