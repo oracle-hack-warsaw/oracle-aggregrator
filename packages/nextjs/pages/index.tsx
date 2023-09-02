@@ -12,27 +12,33 @@ const Home: NextPage = () => {
         <h1 className="text-3xl font-bold mb-6">🐐 Welcome to G.O.A.T. - Groundbreaking Oracle Aggregator Technology</h1>
 
         <div className="highlighted-section p-4 rounded-lg border-2 border-gray-300">
-          <h2 className="text-2xl mb-4 font-semibold">Unleashing the Future with G.O.A.T.</h2>
           <p className="mb-4">
-            🔥 Fantastic revelations for the crypto world! We've achieved seamless integration with both <strong>Chronicle</strong> and <strong>ChainLink</strong>, showcasing our unparalleled dedication to delivering only the best. With G.O.A.T., you're not just stepping into another platform but embarking on a revolutionary journey.
+            🔥 Fantastic revelations for the crypto world! We've achieved integration with both <strong>Chronicle</strong> and <strong>ChainLink</strong>, showcasing our unparalleled dedication to delivering only the best. With G.O.A.T., you will be able to mint, rent NFTs and use NFTs to guard access to Oracle Providers Feeds.
           </p>
           <br/>
 
           <div className="features-grid grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <h3 className="text-xl mb-2">
-                <CubeTransparentIcon className="h-4 w-4 inline-block mr-2" /><Link href="/oracles">Oracles</Link></h3>
-              <p>
-                The Oracles page offers a deep dive into various oracle protocols including price feeds and availability. User can mint and rent NFT for particular price feed!
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl mb-2"><Square3Stack3DIcon className="h-4 w-4 inline-block mr-2" /><Link href="/inventory">Inventory</Link></h3>
-              <p>
-                The Inventory page is your gateway to managing your NFTs. View your collection, manage them with ease, and use them to your smart contracts!
-              </p>
-            </div>
+            <Link href="/oracles">
+              <div className="btn-accent p-4 rounded-lg flex flex-col items-center justify-center text-center cursor-pointer">
+                <CubeTransparentIcon className="h-6 w-6 mb-2" />
+                <h3 className="text-xl mb-2">Oracles</h3>
+                <p className="text-sm">
+                  Dive into oracle protocols, view price feeds, and mint or rent NFTs.
+                </p>
+              </div>
+            </Link>
+            <Link href="/inventory">
+              <div className="btn-accent p-4 rounded-lg flex flex-col items-center justify-center text-center cursor-pointer">
+                <Square3Stack3DIcon className="h-6 w-6 mb-2" />
+                <h3 className="text-xl mb-2">Inventory</h3>
+                <p className="text-sm">
+                  Manage your NFT collection and connect them to smart contracts.
+                </p>
+              </div>
+            </Link>
           </div>
+
+
 
           <p className="mt-4">
             So, what exactly is G.O.A.T.? We're a Groundbreaking Oracle Aggregator Technology. Through us, users can access various oracles from a single entry point, compare pricing, and make informed choices. On the flip side, oracle providers get a transparent platform to price their services based on real demand. As we stride forward, our goals are clear: to enhance product-market fit, incorporate as many Oracle Providers as possible, and cement the innovative idea of using NFTs for data feed access. The future looks promising, and with G.O.A.T., it looks revolutionary.
@@ -42,7 +48,8 @@ const Home: NextPage = () => {
 
 
         <div className="founders mb-6">
-          <h2 className="text-2xl mb-4">Meet the Founders</h2>
+          <br/>
+          <h2 className="text-2xl mb-4 text-center">Founders</h2>
 
           <div className="flex gap-6 justify-center">
             <div className="founder flex flex-col items-center w-1/4">
