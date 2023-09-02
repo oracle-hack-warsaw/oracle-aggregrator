@@ -58,6 +58,8 @@ contract OracleToken is ERC721A, IERC6982, Ownable {
 			tokenIdToOracleName[tokenId] = oracleName;
 			tokenIdToTokenPair[tokenId] = tokenPair;
 		}
+
+		// TODO: add picture metadata (oracle logo)
     }
 
 	function lockToken(uint256 tokenId, address targetContract) public onlyOwner {
