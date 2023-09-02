@@ -12,11 +12,13 @@ const Oracles: NextPage = () => {
   const doRent = useCallback(() => {
     // Placeholder for renting logic
   }, []);
-  // Extract all unique feed names
+  // Extract all unique feed names and oracle display names
   const allFeedNames = Array.from(new Set(oracleData.flatMap(oracle => oracle.feeds.map(feed => feed.displayName))));
+  const allOracleNames = oracleData.map(oracle => oracle.displayName);
 
   // State to track the selected filters
   const [selectedFeeds, setSelectedFeeds] = useState<string[]>([]);
+  const [selectedOracles, setSelectedOracles] = useState<string[]>([]);
 
   const toggleFeedFilter = (feedName: string) => {
     if (selectedFeeds.includes(feedName)) {
@@ -25,16 +27,35 @@ const Oracles: NextPage = () => {
       setSelectedFeeds(prev => [...prev, feedName]);
     }
   };
+
+  const toggleOracleFilter = (oracleName: string) => {
+    if (selectedOracles.includes(oracleName)) {
+      setSelectedOracles(prev => prev.filter(oracle => oracle !== oracleName));
+    } else {
+      setSelectedOracles(prev => [...prev, oracleName]);
+    }
+  };
   return (
       <>
         <MetaHeader title="G.O.A.T | Oracles" description="Available Oracles.">
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
         </MetaHeader>
-
-          {/* Filters */}
         <div className="container mx-auto p-8 w-full">
+          {/* Oracle Filters */}
+          <div className="mb-4 flex flex-wrap">
+            {allOracleNames.map(oracleName => (
+                <span
+                    key={oracleName}
+                    className={`cursor-pointer px-3 py-1 border rounded-lg m-1 ${selectedOracles.includes(oracleName) ? 'bg-gray-400' : ''}`}
+                    onClick={() => toggleOracleFilter(oracleName)}
+                >
+              {oracleName}
+            </span>
+            ))}
+          </div>
 
+          {/* Feed Filters */}
           <div className="mb-4 flex flex-wrap">
             {allFeedNames.map(feedName => (
                 <span
@@ -47,7 +68,7 @@ const Oracles: NextPage = () => {
             ))}
           </div>
 
-
+          {/* Table */}
           <table className="w-full">
             <thead>
               <tr className="text-left border-b">
@@ -59,11 +80,12 @@ const Oracles: NextPage = () => {
               </tr>
             </thead>
             <tbody>
-              {oracleData.map((oracle, oIndex) => (
+              {oracleData
+              .filter(oracle => selectedOracles.length === 0 || selectedOracles.includes(oracle.displayName))
+              .map((oracle, oIndex) => (
                   oracle.feeds
                   // Filter based on selected feeds
                   .filter(feed => selectedFeeds.length === 0 || selectedFeeds.includes(feed.displayName))
-
                   .map((feed, fIndex) => (
                       <tr key={`${oIndex}-${fIndex}`}>
                         <td className={`p-4 border-b-2 ${oracle.cssClass}`}>
