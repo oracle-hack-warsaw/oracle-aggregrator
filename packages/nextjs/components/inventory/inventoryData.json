@@ -2,29 +2,69 @@
   {
     "oracleDisplayName" : "Chronicle",
     "dataFeedDisplayName": "BTC/USD",
-    "imgSrc": "none",
-    "rentedTo": "0x0",
+    "imgSrc": "/assets/chronicle.png",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
+    "locked": true
+  },
+  {
+    "oracleDisplayName" : "Chronicle",
+    "dataFeedDisplayName": "BTC/USD",
+    "imgSrc": "/assets/chronicle.png",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": false
   },
   {
     "oracleDisplayName" : "Chronicle",
     "dataFeedDisplayName": "BTC/USD",
-    "imgSrc": "none",
+    "imgSrc": "/assets/chronicle.png",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
+    "locked": false
+  },  {
+    "oracleDisplayName" : "Red Stone",
+    "dataFeedDisplayName": "BTC/ETH",
+    "imgSrc": "/assets/redstone.png",
     "rentedTo": "0x0",
     "locked": false
   },
   {
-    "oracleDisplayName" : "Chronicle",
+    "oracleDisplayName" : "Red Stone",
+    "dataFeedDisplayName": "BTC/ETH",
+    "imgSrc": "/assets/redstone.png",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
+    "locked": true
+  },
+  {
+    "oracleDisplayName" : "Red Stone",
+    "dataFeedDisplayName": "BTC/ETH",
+    "imgSrc": "/assets/redstone.png",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
+    "locked": false
+  },  {
+    "oracleDisplayName" : "Chainlink",
     "dataFeedDisplayName": "BTC/USD",
-    "imgSrc": "none",
-    "rentedTo": "0x0",
+    "imgSrc": "/assets/chainlink.jpg",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
+    "locked": false
+  },
+  {
+    "oracleDisplayName" : "Chainlink",
+    "dataFeedDisplayName": "BTC/ETH",
+    "imgSrc": "/assets/chainlink.jpg",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
+    "locked": false
+  },
+  {
+    "oracleDisplayName" : "Chronicle",
+    "dataFeedDisplayName": "BTC/ETH",
+    "imgSrc": "/assets/nameless.png",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": false
   },
   {
     "oracleDisplayName" : "Nameless Oracle Provider",
     "dataFeedDisplayName": "BTC/ETH",
-    "imgSrc": "none",
-    "rentedTo": "0x0",
+    "imgSrc": "/assets/nameless.png",
+    "rentedTo": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
     "locked": true
   }
 ]
