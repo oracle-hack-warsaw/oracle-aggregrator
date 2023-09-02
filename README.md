@@ -61,3 +61,7 @@ This project was build at EthWarsaw 2023 by:
 - [Alexe Spataru](twitter.com/urataps/)
 - [arjanjohan](twitter.com/arjanjohan/)
 - [Aleksander Wójcik](linkedin.com/in/aleksanderwojcik/)
+
+## License
+
+This project is licensed using GPLv3. The project is initialized using Scaffold-ETH 2 by BuidlGuidl.
