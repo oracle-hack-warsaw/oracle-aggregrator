@@ -117,4 +117,24 @@ p {
 .modal-message {
   margin-bottom: 20px;
 }
+.btn-proceed[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #888;
+}
+
+.btn-proceed[disabled]::before {
+  content: "\1F6AB";
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.btn-proceed[disabled]:hover::before {
+  display: block;
+}
 

@@ -8,7 +8,16 @@ import moment from 'moment';
 const Inventory: NextPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
+  const [contractAddress, setContractAddress] = useState('');
+  const handleInputChange = (e) => {
+    setContractAddress(e.target.value);
+  };
 
+  const isValidAddress = () => {
+    // checks if the string starts with "0x" and followed by at least one character
+    console.log(contractAddress + ' ' + /^0x.+/.test(contractAddress))
+    return /^0x.+/.test(contractAddress);
+  };
   const handleNftClick = (nft) => {
     if (nft.locked) {
       const now = moment();
@@ -32,7 +41,7 @@ const Inventory: NextPage = () => {
     } else {
       setModalContent({
         title: 'Use NFT',
-        message: 'Use this NFT for oracle feed',
+        message: `Use this NFT for oracle feed. Provide smart contract address that will use this nft to have access to oracle ${nft.oracleDisplayName} with feed data ${nft.dataFeedDisplayName}`,
         isUnlocked: true
       });
     }
@@ -78,12 +87,12 @@ const Inventory: NextPage = () => {
               </div>
           ))}
         </div>
-        {showModal && <Modal content={modalContent} onClose={() => setShowModal(false)} />}
+        {showModal && <Modal content={modalContent} onClose={() => setShowModal(false)} isValidAddress={isValidAddress} handleInputChange={handleInputChange} />}
       </>
   );
 };
 
-function Modal({ content, onClose }) {
+function Modal({ content, onClose, isValidAddress, handleInputChange }) {
   return (
       <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
         <div className="modal-content">
@@ -93,17 +102,19 @@ function Modal({ content, onClose }) {
           <p className="modal-message text-black">{content.message}</p>
 
           {content.isUnlocked ? (
-              <input type="text" placeholder="Enter Smart Contract" className="input-field-smart-contract" />
+              <input
+                  type="text"
+                  placeholder="Enter Smart Contract"
+                  className="input-field-smart-contract"
+                  onChange={handleInputChange}
+              />
           ) : null}
 
-          {content.isUnlocked && <button className="btn-proceed">Proceed</button>}
+          {content.isUnlocked && <button className="btn-proceed" disabled={!isValidAddress()}>Proceed</button>}
           <button onClick={onClose} className="btn-close">Close</button>
         </div>
       </div>
   );
-
-
-
 }
 
 export default Inventory;
