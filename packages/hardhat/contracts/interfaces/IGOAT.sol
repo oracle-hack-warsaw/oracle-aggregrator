@@ -16,6 +16,7 @@ interface IGOAT {
 		OracleProvider providerId;
 	}
 
+    function mintGOAT(address to, OracleId[] calldata oracles) external payable returns(uint256[] memory tokenIds);
 
     function addOracles(OracleProvider providerId, address[] calldata oracles) external;
 
