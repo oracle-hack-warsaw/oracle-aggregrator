@@ -10,15 +10,27 @@ Groundbreaking Oracle Aggregator Technology (in short, GOAT) is a decentralized 
 
 ## Contents
 
+- [Deployment](#deployment)
 - [Contracts addresses](#contracts-addresses)
 - [Links](#links)
 - [Team](#team)
 
+## Deployment
+
+To deploy 
+```yarn hardhat deploy-goat --oracle-config C:\git\oracle-aggregrator\packages\hardhat\oracles\sepolia.json --network <NETWORK_NAME>```
+
+To verify
+```yarn hardhat verify <GOAT_ADDRESS> --network <NETWORK_NAME>```
+
+Execute minting script
+```yarn hardhat mint --goat <GOAT_ADDRESS> --oracle-provider 0 --oracle <ORACLE_ADDRESS> --network <NETWORK_NAME>```
+
 ## Contracts addresses
 
-- [Ethereum Sepolia](https://etherscan.io/address/0x1aE13B8Cfba80b016440c1712C20A18d71E84020)
-- [Mantle testnet](https://explorer.testnet.mantle.xyz/address/0x)
-- [Celo testnet](https://explorer.testnet.mantle.xyz/address/0x)
+- [Ethereum Sepolia](https://sepolia.etherscan.io/address/0x085039d9644736b5970ae5BeE3B1DD56D00A9f0B)
+- [Mantle testnet](https://explorer.testnet.mantle.xyz/address/0x385d55e3e0cE503526380b40523f41D8290B4793)
+- [Celo testnet](https://alfajores.celoscan.io/address/0x82C993811B40609c5Dc3380E7Eb8c4BcAc42D46c)
 
 ## Links
 

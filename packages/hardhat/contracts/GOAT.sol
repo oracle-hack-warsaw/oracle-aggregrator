@@ -79,6 +79,7 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 		uint256 startTokenId = _nextTokenId();
 		_safeMint(to, quantity);
 
+		tokenIds = new uint256[](quantity);
 		for (uint256 i = 0; i < quantity; i++) {
 			uint256 tokenId = startTokenId + i;
 			OracleId memory oracle = oracles[i];
@@ -134,8 +135,8 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 		emit Locked(tokenId, false);
 	}
 
-	function _checkOracleRegistered(OracleId memory oracle) internal view {
-		require(_oracles[oracle.providerId].contains(oracle.oracle), "Oracle not registered");
+	function _checkOracleRegistered(OracleId memory oracleId) internal view {
+		require(_oracles[oracleId.providerId].contains(oracleId.oracle), "Oracle not registered");
 	}
 
 	function _beforeTokenTransfers(
