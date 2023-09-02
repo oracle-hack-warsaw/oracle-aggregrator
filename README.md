@@ -52,7 +52,7 @@ Execute minting script
 
 - [devpost](https://devpost.com/software/oracle-aggregator)
 - [presentation slides](https://docs.google.com/presentation/d/1VX5CuagIlJY3jI_LOm5ACR58CmpsCqlnDqI-QlLJnHw)
-- [demo video](youtube.com)
+- [demo video: TODO](youtube.com)
 
 ## Team
 
