@@ -10,15 +10,13 @@ import "erc721a/contracts/ERC721A.sol";
 contract OracleToken is ERC721A, IERC6982, Ownable {
     using Counters for Counters.Counter;
 
-    Counters.Counter private _tokenIdCounter;
 	mapping(uint256 => address) public tokenIdToTargetContract;
 	mapping(uint256 => bool) public tokenIdToLockStatus;
 	mapping(uint256 => string) public tokenIdToOracleName;
 	mapping(uint256 => string) public tokenIdToTokenPair;
 	bool public defaultLockedStatus;
 
-
-	// TODO: where to store metadata?
+    uint256 public constant PRICE_PER_TOKEN = 0.01 ether;
 
     // ========================================
     //     CONSTRUCTOR AND MODIFIER FUNCTIONS
@@ -50,13 +48,16 @@ contract OracleToken is ERC721A, IERC6982, Ownable {
     //     CORE FUNCTIONS
     // ========================================
 
-    function safeMint(address to, uint256 quantity, string calldata oracleName, string calldata tokenPair) public onlyOwner {
-        //TODO: loop over this
-		uint256 tokenId = _tokenIdCounter.current();
-        _tokenIdCounter.increment();
-		tokenIdToOracleName[tokenId] = oracleName;
-		tokenIdToTokenPair[tokenId] = tokenPair;
-        _safeMint(to, tokenId);
+    function safeMint(address to, uint256 quantity, string calldata oracleName, string calldata tokenPair) external payable {
+        require(msg.value >= quantity * PRICE_PER_TOKEN, "Insufficient Funds");
+		uint256 firstTokenId = _nextTokenId();
+		_safeMint(to, quantity);
+
+		// Add metadata for all tokens minted in the batch mint based on nextTokenId before and after minting.
+		for (uint256 tokenId = firstTokenId; tokenId < _nextTokenId(); tokenId++) {
+			tokenIdToOracleName[tokenId] = oracleName;
+			tokenIdToTokenPair[tokenId] = tokenPair;
+		}
     }
 
 	function lockToken(uint256 tokenId, address targetContract) public onlyOwner {
