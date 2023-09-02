@@ -102,7 +102,7 @@ const Oracles: NextPage = () => {
                   .filter(feed => selectedFeeds.length === 0 || selectedFeeds.includes(feed.displayName))
                   .map((feed, fIndex) => (
                     <tr key={`${oIndex}-${fIndex}`}>
-                      <td className={`p-4 border-b-2 ${oracle.cssClass}`}>
+                      <td className={`p-4 border-b-2`}>
                         <div className="p-2 rounded-lg">{oracle.displayName}</div>
                       </td>
                       <td className="p-4 border-b-2">
