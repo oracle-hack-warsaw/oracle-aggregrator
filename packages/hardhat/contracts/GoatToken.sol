@@ -1,15 +1,13 @@
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
-import { IERC6982 } from "./IERC6982.sol";
-import { IERC4907 } from "./IERC4907.sol";
-import "erc721a/contracts/ERC721A.sol";
+import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import { IERC6982 } from "./interfaces/IERC6982.sol";
+import { IERC4907 } from "./interfaces/IERC4907.sol";
+import {ERC721A} from "erc721a/contracts/ERC721A.sol";
 
 contract GoatToken is ERC721A, IERC6982, IERC4907, Ownable {
-    using Counters for Counters.Counter;
 
 	// Mapping to contract which accesses the oracle
 	mapping(uint256 => address) public tokenIdToTargetContract;
