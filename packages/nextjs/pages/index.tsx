@@ -63,9 +63,20 @@ const Home: NextPage = () => {
                     height={50}
                 />
               </div>
-              <h3 className="mb-2">Aleksander (Alex)</h3>
-              <p className="text-sm mb-2 text-center">Aleksander (Alex) is a Full Stack Developer (~8+ y/o exp) skilled in a vast range of technologies, programming languages, architectures and tools, including web3.</p>
-              <a href="https://linkedin.com/in/aleksanderwojcik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <h3 className="mb-2">
+                <a href="https://linkedin.com/in/aleksanderwojcik/" target="_blank" rel="noopener noreferrer">
+                  Aleksander (Alex) &nbsp;
+                  <Image
+                      src={"/assets/linkedin_short.png"}
+                      alt="linkedin_short.png"
+                      className={"rounded inline-block"}
+                      width={18}
+                      height={18}
+                  />
+                </a>
+              </h3>
+              <p className="text-sm mb-2 text-center">Full Stack Developer (~8+ y/o exp) skilled in a vast range of technologies, including web3.</p>
+
             </div>
 
             <div className="founder flex flex-col items-center w-1/4">
@@ -79,9 +90,19 @@ const Home: NextPage = () => {
                     height={50}
                 />
               </div>
-              <h3 className="mb-2">Arjan van Hoogdalem</h3>
+              <h3 className="mb-2">
+                <a href="https://twitter.com/arjanjohan/" target="_blank" rel="noopener noreferrer">
+                  Arjan van Hoogdalem &nbsp;
+                  <Image
+                      src={"/assets/twitter.png"}
+                      alt="twitter.png"
+                      className={"rounded inline-block"}
+                      width={18}
+                      height={18}
+                  />
+                </a>
+              </h3>
               <p className="text-sm mb-2 text-center">Backend & smart contract developer. Game theory, defi, and iGaming enthusiast.</p>
-              <a href="https://twitter.com/arjanjohan/" target="_blank" rel="noopener noreferrer">Twitter</a>
             </div>
 
             <div className="founder flex flex-col items-center w-1/4">
@@ -95,9 +116,19 @@ const Home: NextPage = () => {
                     height={50}
                 />
               </div>
-              <h3 className="mb-2">Alexe Luca Spataru</h3>
+              <h3 className="mb-2">
+                <a href="https://twitter.com/urataps" target="_blank" rel="noopener noreferrer">
+                  Alexe Luca Spataru &nbsp;
+                  <Image
+                      src={"/assets/twitter.png"}
+                      alt="twitter.png"
+                      className={"rounded inline-block"}
+                      width={18}
+                      height={18}
+                  />
+                </a>
+              </h3>
               <p className="text-sm mb-2 text-center">Web3 founder, smart contract guru, and blockchain advocate.</p>
-              <a href="https://twitter.com/urataps/" target="_blank" rel="noopener noreferrer">Twitter</a>
             </div>
           </div>
         </div>
