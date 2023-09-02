@@ -25,7 +25,6 @@ const Oracles: NextPage = () => {
                 <th className="p-4">Oracle Provider</th>
                 <th className="p-4">Feed</th>
                 <th className="p-4">Last Updated</th>
-                <th className="p-4">Address</th>
                 <th className="p-4 w-1/4">Action</th>
               </tr>
             </thead>
@@ -39,13 +38,14 @@ const Oracles: NextPage = () => {
                           </div>
                         </td>
                         <td className="p-4 border-b-2">
-                          <div className="font-bold">{feed.displayName}</div>
+                          <div className="font-bold">
+                            <a href={`https://etherscan.io/address/${feed.address}`}>{feed.displayName}</a>
+                          </div>
                           <div className="text-sm mt-1">{feed.currentFeedPrice}</div>
                         </td>
                         <td className="p-4 border-b-2">
                           {moment(feed.lastUpdatedLong).fromNow()}
                         </td>
-                        <td className="p-4 border-b-2 text-xs">{feed.address}</td>
                         <td className="p-4 border-b-2 flex justify-between items-center">
                           <button onClick={doMint} className="btn btn-accent w-1/2 relative mr-2">
                             Mint
