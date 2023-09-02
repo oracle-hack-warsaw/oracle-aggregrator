@@ -4,7 +4,7 @@ pragma solidity >=0.8.0 <0.9.0;
 interface IGOAT {
     event GOATsMinted(address indexed to, uint256[] tokenIds, OracleId[] oracles);
 
-    event OraclesAdded(address[] oracles, OracleProvider providerId);
+    event OraclesAdded(address[] oracles, OracleProvider indexed providerId);
 
     enum OracleProvider {
 		Chronicle,
