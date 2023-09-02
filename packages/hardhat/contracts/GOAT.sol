@@ -70,9 +70,9 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
     // ========================================
 
     function mintGOAT(address to, OracleId[] calldata oracles) external payable returns(uint256[] memory tokenIds) {
-        require(msg.value >= PRICE_PER_TOKEN, "Insufficient Funds");
-		uint256 startTokenId = _nextTokenId();
 		uint256 quantity = oracles.length;
+        require(msg.value >= quantity * PRICE_PER_TOKEN, "Insufficient Funds");
+		uint256 startTokenId = _nextTokenId();
 		_safeMint(to, quantity);
 
 		for (uint256 i = 0; i < quantity; i++) {
