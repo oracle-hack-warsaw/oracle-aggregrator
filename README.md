@@ -11,12 +11,21 @@ Groundbreaking Oracle Aggregator Technology (in short, GOAT) is a decentralized 
 ## Contents
 
 - [Contracts addresses](#contracts-addresses)
+- [Links](#links)
 - [Team](#team)
 
 ## Contracts addresses
 
 - [Ethereum Sepolia](https://etherscan.io/address/0x)
 - [Mantle testnet](https://explorer.testnet.mantle.xyz/address/0x)
+
+## Links
+
+
+- [devpost](https://devpost.com/software/oracle-aggregator)
+- [presentation slides](https://docs.google.com/presentation/d/1VX5CuagIlJY3jI_LOm5ACR58CmpsCqlnDqI-QlLJnHw)
+- [demo video](youtube.com)
+
 
 ## Team
 
