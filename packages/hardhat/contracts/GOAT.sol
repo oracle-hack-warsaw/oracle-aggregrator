@@ -9,6 +9,8 @@ import {IERC6982} from "./interfaces/IERC6982.sol";
 import {ERC721A} from "erc721a/contracts/ERC721A.sol";
 import {ERC4907A} from "erc721a/contracts/extensions/ERC4907A.sol";
 import {IGOAT} from "./interfaces/IGOAT.sol";
+import {IChronicle} from "./interfaces/IChronicle.sol";
+import {IChainlinkOracle} from "./interfaces/IChainlinkOracle.sol";
 
 contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 	using Address for address;
@@ -42,14 +44,26 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 		return userOf(tokenId) != address(0);
     }
 
-	function decimals() public pure override returns(uint8) {
+	function decimals() public pure returns(uint8) {
 		return 18;
 	}
 
-    function price(uint256 tokenId) external view returns(uint256){
+    function price(uint256 tokenId) external view returns(uint256, uint256) {
+		require(userOf(tokenId) == msg.sender, "Caller is not user");
 		OracleId memory oracle = tokenIdToOracle[tokenId];
 
-		// todo:
+		if (oracle.providerId == OracleProvider.Chronicle) {
+			return IChronicle(oracle.oracle).readWithAge();
+		} else if (oracle.providerId == OracleProvider.Chainlink) {
+			(, int256 answer, , uint256 updatedAt, ) = IChainlinkOracle(oracle.oracle).latestRoundData();
+			require(answer >= 0, "Negative answer");
+			uint8 feedDecimals = IChainlinkOracle(oracle.oracle).decimals();
+			// scale to 18 decimals.
+			uint256 value = uint256(answer) * 10 ** (18 - feedDecimals);
+			return (value, updatedAt);
+		} else {
+			revert("Invalid oracle provider");
+		}
 	}
 
     // ========================================

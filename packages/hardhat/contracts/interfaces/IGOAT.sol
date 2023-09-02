@@ -22,5 +22,5 @@ interface IGOAT {
 
     function addChainlinkOracles(address[] calldata oracles) external;
 
-    function price(uint256 tokenId) external view returns(uint256);
+    function price(uint256 tokenId) external view returns(uint256 value, uint256 age);
 }
