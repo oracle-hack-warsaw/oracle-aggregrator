@@ -2,10 +2,16 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Bars3Icon, BugAntIcon, MagnifyingGlassIcon, SparklesIcon, CubeTransparentIcon } from "@heroicons/react/24/outline";
+import { FolderOpenIcon, IdentificationIcon, QueueListIcon, Square3Stack3DIcon } from "@heroicons/react/20/solid";
+import {
+  Bars3Icon,
+  BugAntIcon,
+  CubeTransparentIcon,
+  MagnifyingGlassIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
-import {FolderOpenIcon, IdentificationIcon, QueueListIcon, Square3Stack3DIcon} from '@heroicons/react/20/solid';
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const router = useRouter();
@@ -53,12 +59,12 @@ export const Header = () => {
           Inventory
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink href="/blockexplorer">
           <MagnifyingGlassIcon className="h-4 w-4" />
           Block Explorer
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
 
@@ -89,7 +95,7 @@ export const Header = () => {
         </div>
         <div className="hidden lg:flex items-center gap-2 ml-4 mr-6">
           <div className="flex relative w-10 h-10">
-        <Image alt="GOAT logo"  fill src="/assets/goat_logo.jpeg" />
+            <Image alt="GOAT logo" fill src="/assets/goat_logo.jpeg" />
           </div>
         </div>
 
