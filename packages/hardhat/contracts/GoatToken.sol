@@ -1,28 +1,27 @@
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
+import {Address} from "@openzeppelin/contracts/utils/Address.sol";
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import { IERC6982 } from "./interfaces/IERC6982.sol";
-import { IERC4907 } from "./interfaces/IERC4907.sol";
+import {IERC6982} from "./interfaces/IERC6982.sol";
+import {IERC4907} from "./interfaces/IERC4907.sol";
 import {ERC721A} from "erc721a/contracts/ERC721A.sol";
+import {ERC4907A} from "erc721a/contracts/extensions/ERC4907A.sol";
 
-contract GoatToken is ERC721A, IERC6982, IERC4907, Ownable {
+contract GoatToken is ERC4907A, IERC6982, Ownable {
+	using Address for address;
+
+	// Locking data
+	bool public immutable defaultLocked;
 
 	// Mapping to contract which accesses the oracle
-	mapping(uint256 => address) public tokenIdToTargetContract;
+	mapping(address => uint256) internal targetContractToTokenId;
 
-	// Mapping for locking
-	mapping(uint256 => bool) public tokenIdToLockStatus;
-	
-	// Mapping for renting
-	mapping(uint256 => address) public tokenIdToUser;
-	mapping(uint256 => uint256) public tokenIdToExpires;
 
 	// On-chain metadata
 	mapping(uint256 => string) public tokenIdToOracleName;
 	mapping(uint256 => string) public tokenIdToTokenPair;
-	bool public defaultLockedStatus;
 
     uint256 public constant PRICE_PER_TOKEN = 0.01 ether;
 
@@ -30,35 +29,18 @@ contract GoatToken is ERC721A, IERC6982, IERC4907, Ownable {
     //     CONSTRUCTOR AND MODIFIER FUNCTIONS
     // ========================================
 
-    constructor() ERC721A("GroundbreakingOracleAggregatorToken", "GOAT") {
-		defaultLockedStatus = false;
-		emit DefaultLocked(defaultLockedStatus);
-	}
-
-	modifier notLocked(uint256 tokenId) {
-    	require(!tokenIdToLockStatus[tokenId]);
-    	_;
+    constructor() ERC721A("Groundbreaking Oracle Aggregator Technology", "GOAT") {
+		defaultLocked = false;
+		emit DefaultLocked(false);
 	}
 
     // ========================================
     //     VIEW FUNCTIONS
     // ========================================
 
-    function locked(uint256 tokenId) external view returns (bool) {
-		return tokenIdToLockStatus[tokenId];
+    function locked(uint256 tokenId) public view returns (bool) {
+		return userOf(tokenId) != address(0);
     }
-
-	function defaultLocked() external view returns (bool){
-		return defaultLockedStatus;
-	}
-	
-    function userOf(uint256 tokenId) external view returns(address) {
-		return tokenIdToUser[tokenId];
-	}
-
-    function userExpires(uint256 tokenId) external view returns(uint256){
-		return tokenIdToExpires[tokenId];
-	}
 
     // ========================================
     //     CORE FUNCTIONS
@@ -78,25 +60,40 @@ contract GoatToken is ERC721A, IERC6982, IERC4907, Ownable {
 		// TODO: add picture metadata (oracle logo)
     }
 
-	function lockToken(uint256 tokenId, address targetContract) public onlyOwner {
-		tokenIdToTargetContract[tokenId] = targetContract;
-		if (targetContract == address(0)) {
+	/// @notice Renting out an nft to a smart contract.
+	/// @dev If target contract is address(0), then the token is removed from renting.
+    function setUser(uint256 tokenId, address targetContract, uint64 expires) public override {
+		if (targetContract != address(0)){
+			_lockToken(tokenId, targetContract);
+		} else {
+			_unlockToken(tokenId);
+		}
+	
+		super.setUser(tokenId, targetContract, expires);
+	}
+
+	function _lockToken(uint256 tokenId, address targetContract) internal {
+		require(targetContract.isContract(), "User must be a contract");
+		targetContractToTokenId[targetContract] = tokenId;
+		emit Locked(tokenId, true);
+	}
+
+	function _unlockToken(uint256 tokenId) internal {
+		address targetContract = _explicitUserOf(tokenId);
+		if(targetContract != address(0)){
+			delete targetContractToTokenId[targetContract];
 			emit Locked(tokenId, false);
 		}
-		else {
-			emit Locked(tokenId, true);
+	}
+
+	 function _beforeTokenTransfers(
+        address,
+        address,
+        uint256 startTokenId,
+        uint256 quantity
+    ) internal view override {
+		for (uint256 tokenId = startTokenId; tokenId < startTokenId + quantity; tokenId++) {
+			require(!locked(tokenId), "Token is locked");
 		}
 	}
-
-	// Unlocking tokens by calling the lockTokens function to the zero address.
-	function unlockToken(uint256 tokenId) public onlyOwner {
-		lockToken(tokenId, address(0));
-	}
-
-	// Renting out an nft 
-    function setUser(uint256 tokenId, address user, uint64 expires) external {
-		tokenIdToUser[tokenId] = user;
-		tokenIdToExpires[tokenId] = expires;
-	}
-
 }
