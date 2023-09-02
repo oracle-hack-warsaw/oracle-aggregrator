@@ -21,34 +21,6 @@
     ]
   },
   {
-    "displayName": "Nameless Oracle Provider",
-    "icon": "none",
-    "cssClass": "bg-gray-300 text-black",
-    "feeds": [
-      {
-        "displayName": "BTC/USDC",
-        "address": "0x0",
-        "displayMintPrice": "$2.00",
-        "lastUpdatedLong": 1693655608408,
-        "currentFeedPrice": "25 790.94"
-      },
-      {
-        "displayName": "ETH/USDC",
-        "address": "0x0",
-        "displayMintPrice": "$1.00",
-        "lastUpdatedLong": 1693655618308,
-        "currentFeedPrice": "1 631.2"
-      },
-      {
-        "displayName": "ETH/USDT",
-        "address": "0x0",
-        "displayMintPrice": "$10.00",
-        "lastUpdatedLong": 1693655618528,
-        "currentFeedPrice": "1 631.2"
-      }
-    ]
-  },
-  {
     "displayName": "Red Stone",
     "icon": "none",
     "cssClass": "bg-red-500 text-white",
@@ -87,6 +59,34 @@
         "displayMintPrice": "$1.99",
         "lastUpdatedLong": 1677324624892,
         "currentFeedPrice": "1 616.488"
+      }
+    ]
+  },
+  {
+    "displayName": "Nameless Oracle Provider",
+    "icon": "none",
+    "cssClass": "bg-gray-300 text-black",
+    "feeds": [
+      {
+        "displayName": "BTC/USDC",
+        "address": "0x500dceA8c02ea1E88f7C60cC94f09694DBc0A0bd",
+        "displayMintPrice": "$2.00",
+        "lastUpdatedLong": 1693655608408,
+        "currentFeedPrice": "25 790.94"
+      },
+      {
+        "displayName": "ETH/USDC",
+        "address": "0x0",
+        "displayMintPrice": "$1.00",
+        "lastUpdatedLong": 1693655618308,
+        "currentFeedPrice": "1 631.2"
+      },
+      {
+        "displayName": "ETH/USDT",
+        "address": "0x0",
+        "displayMintPrice": "$10.00",
+        "lastUpdatedLong": 1693655618528,
+        "currentFeedPrice": "1 631.2"
       }
     ]
   }
