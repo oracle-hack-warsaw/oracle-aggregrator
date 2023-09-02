@@ -9,10 +9,10 @@ const Inventory: NextPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({});
   const [contractAddress, setContractAddress] = useState('');
-  const handleProceed = (e) => {
+  const handleProceed = (e: any) => {
     alert('now proceed to metamask')
   };
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setContractAddress(e.target.value);
   };
 
@@ -26,7 +26,7 @@ const Inventory: NextPage = () => {
     // console.log(contractAddress + ' ' + /^0x.+/.test(contractAddress))
     return /^0x.+/.test(contractAddress);
   };
-  const handleNftClick = (nft) => {
+  const handleNftClick = (nft: any) => {
     if (nft.locked) {
       const now = moment();
       const lockedUntil = moment(nft.lockedUntil);
@@ -114,7 +114,7 @@ const Inventory: NextPage = () => {
   );
 };
 
-function Modal({ content, onClose, isValidAddress, handleInputChange, handleProceed}) {
+function Modal({ content, onClose, isValidAddress, handleInputChange, handleProceed}: any) {
   return (
       <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
         <div className="modal-content">
