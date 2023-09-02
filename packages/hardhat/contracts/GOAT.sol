@@ -15,15 +15,14 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 	using Address for address;
 	using EnumerableSet for EnumerableSet.AddressSet;
 
-	mapping(OracleProvider => EnumerableSet.AddressSet) private _oracles;
-
 	// Locking data
 	bool public immutable defaultLocked;
+    uint256 public constant PRICE_PER_TOKEN = 0.01 ether;
+
+	mapping(OracleProvider => EnumerableSet.AddressSet) private _oracles;
 
 	// On-chain metadata
 	mapping(uint256 => OracleId) public tokenIdToOracle;
-
-    uint256 public constant PRICE_PER_TOKEN = 0.01 ether;
 
     // ========================================
     //     CONSTRUCTOR AND MODIFIER FUNCTIONS
@@ -59,9 +58,11 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 		} else if (oracle.providerId == OracleProvider.Chainlink) {
 			(, int256 answer, , uint256 updatedAt, ) = IChainlinkOracle(oracle.oracle).latestRoundData();
 			require(answer >= 0, "Negative answer");
-			uint8 feedDecimals = IChainlinkOracle(oracle.oracle).decimals();
+
 			// scale to 18 decimals.
+			uint8 feedDecimals = IChainlinkOracle(oracle.oracle).decimals();
 			uint256 value = uint256(answer) * 10 ** (18 - feedDecimals);
+
 			return (value, updatedAt);
 		} else { // todo: redstone
 			revert("Invalid oracle provider");
@@ -87,8 +88,13 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 			tokenIds[i] = tokenId;
 			tokenIdToOracle[tokenId] = oracle;
 		}
-	
+
 		emit GOATsMinted(to, tokenIds, oracles);
+
+		// Refund any dust. Use transfer to avoid re-entrancy.
+		if (msg.value > quantity * PRICE_PER_TOKEN) {
+			payable(msg.sender).transfer(msg.value - quantity * PRICE_PER_TOKEN);
+		}
     }
 
 	function addOracles(OracleProvider providerId, address[] calldata oracles) external override onlyOwner {

@@ -1029,6 +1029,16 @@
   resolved "https://registry.npmjs.org/@balena/dockerignore/-/dockerignore-1.0.2.tgz"
   integrity sha512-wMue2Sy4GAVTk6Ic4tJVcnfdau+gx2EnG7S+uAEe+TWJFqE4YoWN4/H8MSLj4eYJKxGg26lZwboEniNiNwZQ6Q==
 
+"@chainlink/contracts@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@chainlink/contracts/-/contracts-0.6.1.tgz#8842b57e755793cbdbcbc45277fb5d179c993e19"
+  integrity sha512-EuwijGexttw0UjfrW+HygwhQIrGAbqpf1ue28R55HhWMHBzphEH0PhWm8DQmFfj5OZNy8Io66N4L0nStkZ3QKQ==
+  dependencies:
+    "@eth-optimism/contracts" "^0.5.21"
+    "@openzeppelin/contracts" "~4.3.3"
+    "@openzeppelin/contracts-upgradeable" "^4.7.3"
+    "@openzeppelin/contracts-v0.7" "npm:@openzeppelin/contracts@v3.4.2"
+
 "@coinbase/wallet-sdk@^3.6.6":
   version "3.7.1"
   resolved "https://registry.npmjs.org/@coinbase/wallet-sdk/-/wallet-sdk-3.7.1.tgz"
@@ -1451,6 +1461,37 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@eth-optimism/contracts@^0.5.21":
+  version "0.5.40"
+  resolved "https://registry.yarnpkg.com/@eth-optimism/contracts/-/contracts-0.5.40.tgz#d13a04a15ea947a69055e6fc74d87e215d4c936a"
+  integrity sha512-MrzV0nvsymfO/fursTB7m/KunkPsCndltVgfdHaT1Aj5Vi6R/doKIGGkOofHX+8B6VMZpuZosKCMQ5lQuqjt8w==
+  dependencies:
+    "@eth-optimism/core-utils" "0.12.0"
+    "@ethersproject/abstract-provider" "^5.7.0"
+    "@ethersproject/abstract-signer" "^5.7.0"
+
+"@eth-optimism/core-utils@0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@eth-optimism/core-utils/-/core-utils-0.12.0.tgz#6337e4599a34de23f8eceb20378de2a2de82b0ea"
+  integrity sha512-qW+7LZYCz7i8dRa7SRlUKIo1VBU8lvN0HeXCxJR+z+xtMzMQpPds20XJNCMclszxYQHkXY00fOT6GvFw9ZL6nw==
+  dependencies:
+    "@ethersproject/abi" "^5.7.0"
+    "@ethersproject/abstract-provider" "^5.7.0"
+    "@ethersproject/address" "^5.7.0"
+    "@ethersproject/bignumber" "^5.7.0"
+    "@ethersproject/bytes" "^5.7.0"
+    "@ethersproject/constants" "^5.7.0"
+    "@ethersproject/contracts" "^5.7.0"
+    "@ethersproject/hash" "^5.7.0"
+    "@ethersproject/keccak256" "^5.7.0"
+    "@ethersproject/properties" "^5.7.0"
+    "@ethersproject/providers" "^5.7.0"
+    "@ethersproject/rlp" "^5.7.0"
+    "@ethersproject/transactions" "^5.7.0"
+    "@ethersproject/web" "^5.7.0"
+    bufio "^1.0.7"
+    chai "^4.3.4"
+
 "@ethereumjs/rlp@^4.0.1":
   version "4.0.1"
   resolved "https://registry.npmjs.org/@ethereumjs/rlp/-/rlp-4.0.1.tgz"
@@ -1656,7 +1697,7 @@
   dependencies:
     "@ethersproject/logger" "^5.7.0"
 
-"@ethersproject/providers@5.7.2", "@ethersproject/providers@^5.7.2", "@ethersproject/providers@~5.7.1", "@ethersproject/providers@~5.7.2":
+"@ethersproject/providers@5.7.2", "@ethersproject/providers@^5.0.10", "@ethersproject/providers@^5.7.0", "@ethersproject/providers@^5.7.2", "@ethersproject/providers@~5.7.1", "@ethersproject/providers@~5.7.2":
   version "5.7.2"
   resolved "https://registry.npmjs.org/@ethersproject/providers/-/providers-5.7.2.tgz"
   integrity sha512-g34EWZ1WWAVgr4aptGlVBF8mhl3VWjv+8hoAnzStu8Ah22VHBsuGzP17eb6xDVRzw895G4W7vvx60lFFur/1Rg==
@@ -2454,6 +2495,26 @@
   dependencies:
     json-parse-even-better-errors "^2.3.1"
 
+"@openzeppelin/contracts-upgradeable@^4.7.3":
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts-upgradeable/-/contracts-upgradeable-4.9.3.tgz#ff17a80fb945f5102571f8efecb5ce5915cc4811"
+  integrity sha512-jjaHAVRMrE4UuZNfDwjlLGDxTHWIOwTJS2ldnc278a0gevfXfPr8hxKEVBGFBE96kl2G3VHDZhUimw/+G3TG2A==
+
+"@openzeppelin/contracts-v0.7@npm:@openzeppelin/contracts@v3.4.2":
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-3.4.2.tgz#d81f786fda2871d1eb8a8c5a73e455753ba53527"
+  integrity sha512-z0zMCjyhhp4y7XKAcDAi3Vgms4T2PstwBdahiO0+9NaGICQKjynK3wduSRplTgk4LXmoO1yfDGO5RbjKYxtuxA==
+
+"@openzeppelin/contracts@^4.7.3":
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.9.3.tgz#00d7a8cf35a475b160b3f0293a6403c511099364"
+  integrity sha512-He3LieZ1pP2TNt5JbkPA4PNT9WC3gOTOlDcFGJW4Le4QKqwmiNJCRt44APfxMxvq7OugU/cqYuPcSBzOw38DAg==
+
+"@openzeppelin/contracts@~4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.3.3.tgz#ff6ee919fc2a1abaf72b22814bfb72ed129ec137"
+  integrity sha512-tDBopO1c98Yk7Cv/PZlHqrvtVjlgK5R4J6jxLwoO7qxK4xqOiZG+zSkIvGFpPZ0ikc3QOED3plgdqjgNTnBc7g==
+
 "@openzeppelin/contracts@~4.8.1":
   version "4.8.3"
   resolved "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-4.8.3.tgz"
@@ -2470,6 +2531,18 @@
     clsx "1.1.1"
     qrcode "1.5.0"
     react-remove-scroll "2.5.4"
+
+"@redstone-finance/evm-connector@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@redstone-finance/evm-connector/-/evm-connector-0.2.5.tgz#8d3b64cd068dea73a9f2287c91672dfb652a4725"
+  integrity sha512-JjMJVXbgmvmbKleIwzMOKu10mDXTABVoYmmfErF2M7M6pftPiKFIVH16gycU93aQVZeRQ74rieQ55Q691xPS8Q==
+  dependencies:
+    "@chainlink/contracts" "^0.6.1"
+    "@openzeppelin/contracts" "^4.7.3"
+    axios "^1.1.3"
+    ethers "^5.6.8"
+    redstone-protocol "^1.0.5"
+    redstone-sdk "^1.6.1"
 
 "@remix-run/dev@1.12.0":
   version "1.12.0"
@@ -4701,7 +4774,15 @@ axios@^0.21.1:
   dependencies:
     follow-redirects "^1.14.0"
 
-axios@^1.4.0:
+axios@^0.27.2:
+  version "0.27.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
+  integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
+  dependencies:
+    follow-redirects "^1.14.9"
+    form-data "^4.0.0"
+
+axios@^1.1.3, axios@^1.4.0, axios@^1.5.0:
   version "1.5.0"
   resolved "https://registry.npmjs.org/axios/-/axios-1.5.0.tgz"
   integrity sha512-D4DdjDo5CY50Qms0qGQTTw6Q44jl7zRwY7bthds06pUGfChBCTcQs+N743eFWGEd6pRTMd6A+I87aWyFV5wiZQ==
@@ -5011,6 +5092,11 @@ bufferutil@^4.0.1:
   dependencies:
     node-gyp-build "^4.3.0"
 
+bufio@^1.0.7:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/bufio/-/bufio-1.2.1.tgz#8d4ab3ddfcd5faa90f996f922f9397d41cbaf2de"
+  integrity sha512-9oR3zNdupcg/Ge2sSHQF3GX+kmvL/fTPvD0nd5AGLq8SjUYnTz+SlFjK/GXidndbZtIj+pVKXiWeR9w6e9wKCA==
+
 buildcheck@~0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/buildcheck/-/buildcheck-0.0.6.tgz#89aa6e417cfd1e2196e3f8fe915eb709d2fe4238"
@@ -5132,7 +5218,7 @@ chai-as-promised@^7.1.1:
   dependencies:
     check-error "^1.0.2"
 
-chai@~4.3.6:
+chai@^4.3.4, chai@~4.3.6:
   version "4.3.8"
   resolved "https://registry.npmjs.org/chai/-/chai-4.3.8.tgz"
   integrity sha512-vX4YvVVtxlfSZ2VecZgFUTU5qPCYsobVI2O9FmwEXBhDigYGQA6jRXCycIs1yJnnWbZ6/+a2zNIF5DfVCcJBFQ==
@@ -5728,6 +5814,11 @@ decimal.js-light@^2.5.0:
   version "2.5.1"
   resolved "https://registry.npmjs.org/decimal.js-light/-/decimal.js-light-2.5.1.tgz"
   integrity sha512-qIMFpTMZmny+MMIitAB6D7iVPEorVw6YQRWkvarTkT4tBeSLLiHzcwj6q0MmYSFCiVpiqPJTJEYIrpcPzVEIvg==
+
+decimal.js@^10.4.3:
+  version "10.4.3"
+  resolved "https://registry.yarnpkg.com/decimal.js/-/decimal.js-10.4.3.tgz#1044092884d245d1b7f65725fa4ad4c6f781cc23"
+  integrity sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==
 
 decode-named-character-reference@^1.0.0:
   version "1.0.2"
@@ -6958,6 +7049,14 @@ ethereum-cryptography@^2.0.0, ethereum-cryptography@^2.1.2:
     "@scure/bip32" "1.3.1"
     "@scure/bip39" "1.2.1"
 
+ethereum-multicall@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/ethereum-multicall/-/ethereum-multicall-2.19.0.tgz#28462bf48792bf7bb0b2db1ca546f439b2adab96"
+  integrity sha512-ECMxdf1ffxBWTCLeAzEGGWUYNdlNq4zXPj/ZPXdaixbx/qZ/gw4ongwpuR5UGy6D5epWDftvFvIAEzmkwGZ1lQ==
+  dependencies:
+    "@ethersproject/providers" "^5.0.10"
+    ethers "^5.0.15"
+
 ethereumjs-abi@^0.6.8:
   version "0.6.8"
   resolved "https://registry.npmjs.org/ethereumjs-abi/-/ethereumjs-abi-0.6.8.tgz"
@@ -7005,7 +7104,7 @@ ethers@^4.0.40:
     uuid "2.0.1"
     xmlhttprequest "1.8.0"
 
-ethers@^5.5.3, ethers@~5.7.1:
+ethers@^5.0.15, ethers@^5.5.3, ethers@^5.6.8, ethers@^5.7.2, ethers@~5.7.1:
   version "5.7.2"
   resolved "https://registry.npmjs.org/ethers/-/ethers-5.7.2.tgz"
   integrity sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==
@@ -7384,7 +7483,7 @@ fmix@^0.1.0:
   dependencies:
     imul "^1.0.0"
 
-follow-redirects@^1.12.1, follow-redirects@^1.14.0, follow-redirects@^1.15.0:
+follow-redirects@^1.12.1, follow-redirects@^1.14.0, follow-redirects@^1.14.9, follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
   integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
@@ -11366,6 +11465,38 @@ recursive-readdir@^2.2.2:
   integrity sha512-8HrF5ZsXk5FAH9dgsx3BlUer73nIhuj+9OrQwEbLTPOBzGkL1lsFCR01am+v+0m2Cmbs1nP12hLDl5FA7EszKA==
   dependencies:
     minimatch "^3.0.5"
+
+redstone-oracles-smartweave-contracts@*:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/redstone-oracles-smartweave-contracts/-/redstone-oracles-smartweave-contracts-1.0.6.tgz#aa7b6ec453133be240df6cb4fe52a11582cb65b7"
+  integrity sha512-QTGDhkSJyVxggFVaET9EiuwTjdiyNjqWmVNE/jyd8OAESvVtrclLuhQL9bIVlJhVXq6IroyWf0rs8eh/OEG/4Q==
+
+redstone-protocol@*, redstone-protocol@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/redstone-protocol/-/redstone-protocol-1.0.5.tgz#c8555e9a9e3ee49d11b6586bf7090e59404e3395"
+  integrity sha512-62qHSb9jF5875a/gc8MbDcHH1n4dZsBXxlIxpk3vx/MeykAMB6nLd1174Qukvupkr69cneeRQiVqqALkQpmRlg==
+  dependencies:
+    ethers "^5.6.8"
+
+redstone-sdk@^1.6.1:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/redstone-sdk/-/redstone-sdk-1.8.0.tgz#1a95f7d3f520684422df7c6324d7cd18b140a395"
+  integrity sha512-665xtGaUZP0/pJr+Akq8jOW+RcSRdWro6tO/jTUf+s+1ctEryWrnGt9+T6l3vVbLHRRvCgh/u9/Mks61SLGRLA==
+  dependencies:
+    axios "^0.27.2"
+    ethers "^5.7.2"
+    redstone-oracles-smartweave-contracts "*"
+    redstone-protocol "*"
+    redstone-utils "^0.1.0"
+
+redstone-utils@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/redstone-utils/-/redstone-utils-0.1.0.tgz#5af17f5371f940978b5dd0d1776cf48822e75355"
+  integrity sha512-p0MJV5W3RbGX5xDchgQ1Aik7VQ1q0FStDo5TgCl3midng/V8RhLI0IjhKXjC037DwgKbMFOo//rSuQGlJqhZ4A==
+  dependencies:
+    axios "^1.5.0"
+    decimal.js "^10.4.3"
+    ethereum-multicall "^2.19.0"
 
 reduce-flatten@^2.0.0:
   version "2.0.0"

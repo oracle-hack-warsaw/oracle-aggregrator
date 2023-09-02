@@ -46,3 +46,75 @@ p {
   width: 30px;
   height: 30px;
 }
+.input-field-smart-contract {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  margin-bottom: 15px;
+  color: black;
+}
+
+.input-field-smart-contract:focus {
+  border-color: #666;
+  outline: none;
+}
+
+.btn-close, .btn-proceed {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  margin-top: 15px;
+}
+
+.btn-close {
+  background-color: red;
+  color: white;
+  float: right;
+}
+
+.btn-close:hover {
+  background-color: #e60000;
+}
+
+.btn-proceed {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-proceed:hover {
+  background-color: #45a049;
+}
+
+.text-nft-locked {
+  color: red;
+}
+
+.text-use-nft {
+  color: green;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  width: 90%; /* you can adjust width based on your preference */
+  max-width: 500px; /* or any max-width you'd like */
+  margin: 2em auto;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.modal-message {
+  margin-bottom: 20px;
+}
+
