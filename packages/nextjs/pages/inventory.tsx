@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { MetaHeader } from "~~/components/MetaHeader";
+import inventoryData from "~~/components/inventory/inventoryData.json";
 
 const Inventory: NextPage = () => {
   return (

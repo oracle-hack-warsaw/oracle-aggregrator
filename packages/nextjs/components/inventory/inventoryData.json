@@ -1,0 +1,30 @@
+[
+  {
+    "oracleDisplayName" : "Chronicle",
+    "dataFeedDisplayName": "BTC/USD",
+    "imgSrc": "none",
+    "rentedTo": "0x0",
+    "locked": false
+  },
+  {
+    "oracleDisplayName" : "Chronicle",
+    "dataFeedDisplayName": "BTC/USD",
+    "imgSrc": "none",
+    "rentedTo": "0x0",
+    "locked": false
+  },
+  {
+    "oracleDisplayName" : "Chronicle",
+    "dataFeedDisplayName": "BTC/USD",
+    "imgSrc": "none",
+    "rentedTo": "0x0",
+    "locked": false
+  },
+  {
+    "oracleDisplayName" : "Nameless Oracle Provider",
+    "dataFeedDisplayName": "BTC/ETH",
+    "imgSrc": "none",
+    "rentedTo": "0x0",
+    "locked": true
+  }
+]

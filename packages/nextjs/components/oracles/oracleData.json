@@ -1,0 +1,40 @@
+[
+  {
+    "displayName": "Chronicle",
+    "icon": "none",
+    "feeds": [
+      {
+        "displayName": "BTC/USDC",
+        "address": "0x0",
+        "displayPrice": "$5.00"
+      },
+      {
+        "displayName": "ETH/USDC",
+        "address": "0x0",
+        "displayPrice": "$2.00"
+      }
+    ]
+  },
+  {
+    "displayName" : "Nameless Oracle Provider",
+    "icon": "none",
+    "feeds" : [
+      {
+        "displayName" : "BTC/USDC",
+        "address" : "0x0",
+        "displayPrice" : "$2.00"
+
+      },
+      {
+        "displayName" : "ETH/USDC",
+        "address" : "0x0",
+        "displayPrice" : "$1.00"
+      },
+      {
+        "displayName" : "ETH/USDT",
+        "address" : "0x0",
+        "displayPrice" : "$10.00"
+      }
+    ]
+  }
+]
