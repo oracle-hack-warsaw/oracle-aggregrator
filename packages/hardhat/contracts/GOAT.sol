@@ -8,20 +8,16 @@ import {IERC6982} from "./interfaces/IERC6982.sol";
 import {IERC4907} from "./interfaces/IERC4907.sol";
 import {ERC721A} from "erc721a/contracts/ERC721A.sol";
 import {ERC4907A} from "erc721a/contracts/extensions/ERC4907A.sol";
+import {IGOAT} from "./interfaces/IGOAT.sol";
 
-contract GoatToken is ERC4907A, IERC6982, Ownable {
+contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 	using Address for address;
 
 	// Locking data
 	bool public immutable defaultLocked;
 
-	// Mapping to contract which accesses the oracle
-	mapping(address => uint256) internal targetContractToTokenId;
-
-
 	// On-chain metadata
-	mapping(uint256 => string) public tokenIdToOracleName;
-	mapping(uint256 => string) public tokenIdToTokenPair;
+	mapping(uint256 => address) public tokenIdToOracle;
 
     uint256 public constant PRICE_PER_TOKEN = 0.01 ether;
 
@@ -42,22 +38,41 @@ contract GoatToken is ERC4907A, IERC6982, Ownable {
 		return userOf(tokenId) != address(0);
     }
 
+	function decimals() public pure override returns(uint8) {
+		return 18;
+	}
+
+    function price(uint256 tokenId) external view returns(uint256){
+		// todo:
+	}
+
+    function addChainlinkOracles(address[] calldata oracles) external {
+		// todo:
+	}
+
+	function addChronicles(address[] calldata oracles) external {
+		// todo:
+	}
+
     // ========================================
     //     CORE FUNCTIONS
     // ========================================
 
-    function safeMint(address to, uint256 quantity, string calldata oracleName, string calldata tokenPair) external payable {
-        require(msg.value >= quantity * PRICE_PER_TOKEN, "Insufficient Funds");
-		uint256 firstTokenId = _nextTokenId();
+    function mintGOAT(address to, address[] calldata oracles) external payable returns(uint256[] memory tokenIds) {
+        require(msg.value >= PRICE_PER_TOKEN, "Insufficient Funds");
+		uint256 startTokenId = _nextTokenId();
+		uint256 quantity = oracles.length;
 		_safeMint(to, quantity);
 
-		// Add metadata for all tokens minted in the batch mint based on nextTokenId before and after minting.
-		for (uint256 tokenId = firstTokenId; tokenId < _nextTokenId(); tokenId++) {
-			tokenIdToOracleName[tokenId] = oracleName;
-			tokenIdToTokenPair[tokenId] = tokenPair;
+		for (uint256 i = 0; i < quantity; i++) {
+			uint256 tokenId = startTokenId + i;
+			tokenIds[i] = tokenId;
+			tokenIdToOracle[tokenId] = oracles[i];
 		}
+	
 
 		// TODO: add picture metadata (oracle logo)
+		// TODO: emit event
     }
 
 	/// @notice Renting out an nft to a smart contract.
@@ -74,16 +89,11 @@ contract GoatToken is ERC4907A, IERC6982, Ownable {
 
 	function _lockToken(uint256 tokenId, address targetContract) internal {
 		require(targetContract.isContract(), "User must be a contract");
-		targetContractToTokenId[targetContract] = tokenId;
 		emit Locked(tokenId, true);
 	}
 
 	function _unlockToken(uint256 tokenId) internal {
-		address targetContract = _explicitUserOf(tokenId);
-		if(targetContract != address(0)){
-			delete targetContractToTokenId[targetContract];
-			emit Locked(tokenId, false);
-		}
+		emit Locked(tokenId, false);
 	}
 
 	 function _beforeTokenTransfers(
