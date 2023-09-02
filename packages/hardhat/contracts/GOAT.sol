@@ -15,8 +15,7 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 	using Address for address;
 	using EnumerableSet for EnumerableSet.AddressSet;
 
-	EnumerableSet.AddressSet private _chainlinkOracles;
-	EnumerableSet.AddressSet private _chronicles;
+	mapping(OracleProvider => EnumerableSet.AddressSet) private _oracles;
 
 	// Locking data
 	bool public immutable defaultLocked;
@@ -47,6 +46,10 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 		return 18;
 	}
 
+	function providerOracles(OracleProvider providerId) public view returns(address[] memory) {
+		return _oracles[providerId].values();
+	}
+
     function price(uint256 tokenId) external view returns(uint256, uint256) {
 		require(userOf(tokenId) == msg.sender, "Caller is not user");
 		OracleId memory oracle = tokenIdToOracle[tokenId];
@@ -60,7 +63,7 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 			// scale to 18 decimals.
 			uint256 value = uint256(answer) * 10 ** (18 - feedDecimals);
 			return (value, updatedAt);
-		} else {
+		} else { // todo: redstone
 			revert("Invalid oracle provider");
 		}
 	}
@@ -85,23 +88,15 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 			tokenIdToOracle[tokenId] = oracle;
 		}
 	
-		emit GOATMinted(to, tokenIds, oracles);
+		emit GOATsMinted(to, tokenIds, oracles);
     }
 
-	function addChainlinkOracles(address[] calldata oracles) external onlyOwner {
+	function addOracles(OracleProvider providerId, address[] calldata oracles) external override onlyOwner {
 		for (uint256 i = 0; i < oracles.length; i++) {
-			_chainlinkOracles.add(oracles[i]);
+			_oracles[providerId].add(oracles[i]);
 		}
 
-		emit OraclesAdded(oracles, OracleProvider.Chainlink);
-	}
-
-	function addChronicles(address[] calldata oracles) external onlyOwner {
-		for (uint256 i = 0; i < oracles.length; i++) {
-			_chronicles.add(oracles[i]);
-		}
-
-		emit OraclesAdded(oracles, OracleProvider.Chronicle);
+		emit OraclesAdded(oracles, providerId);
 	}
 
 	/// @notice Renting out an nft to a smart contract.
@@ -134,11 +129,7 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 	}
 
 	function _checkOracleRegistered(OracleId memory oracle) internal view {
-		if(oracle.providerId == OracleProvider.Chronicle){
-			require(_chronicles.contains(oracle.oracle), "Chronicle not registered");
-		} else if(oracle.providerId == OracleProvider.Chainlink){
-			require(_chainlinkOracles.contains(oracle.oracle), "Chainlink oracle not registered");
-		}
+		require(_oracles[oracle.providerId].contains(oracle.oracle), "Oracle not registered");
 	}
 
 	function _beforeTokenTransfers(

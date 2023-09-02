@@ -1,3 +1,4 @@
+import "./tasks/deploy";
 import "./tasks/kiss";
 import "@matterlabs/hardhat-zksync-solc";
 import "@matterlabs/hardhat-zksync-verify";
@@ -107,6 +108,15 @@ const config: HardhatUserConfig = {
     baseGoerli: {
       url: "https://goerli.base.org",
       accounts: [deployerPrivateKey],
+    },    
+    mantleTestnet: {
+      url: 'https://rpc.testnet.mantle.xyz',
+      accounts: [deployerPrivateKey],
+    },
+    alfajores: {
+      url: "https://alfajores-forno.celo-testnet.org",
+      accounts: [deployerPrivateKey],
+      chainId: 44787
     },
   },
   verify: {
