@@ -1,19 +1,20 @@
 [
   {
     "displayName": "Chronicle",
+    "providerId": 0,
     "icon": "none",
     "cssClass": "bg-green-500 text-white",
     "feeds": [
       {
         "displayName": "BTC/USDC",
-        "address": "0x0",
+        "address": "0x4B5aBFC0Fe78233b97C80b8410681765ED9fC29c",
         "displayMintPrice": "$5.00",
         "lastUpdatedLong": 1693655618508,
         "currentFeedPrice": "25 790.94"
       },
       {
         "displayName": "ETH/USDC",
-        "address": "0x0",
+        "address": "0xc8A1F9461115EF3C1E84Da6515A88Ea49CA97660",
         "displayMintPrice": "$2.00",
         "lastUpdatedLong": 1693655608508,
         "currentFeedPrice": "1 631.2"
@@ -22,6 +23,7 @@
   },
   {
     "displayName": "Red Stone",
+    "providerId": 2,
     "icon": "none",
     "cssClass": "bg-red-500 text-white",
     "feeds": [
@@ -43,6 +45,7 @@
   },
   {
     "displayName": "ChainLink",
+    "providerId": 1,
     "icon": "none",
     "cssClass": "bg-blue-500 text-white",
     "feeds": [
@@ -64,8 +67,9 @@
   },
   {
     "displayName": "Nameless Oracle Provider",
+    "providerId": 3,
     "icon": "none",
-    "cssClass": "bg-gray-300 text-black",
+    "cssClass": "bg-blue-500 text-white",
     "feeds": [
       {
         "displayName": "BTC/USDC",
