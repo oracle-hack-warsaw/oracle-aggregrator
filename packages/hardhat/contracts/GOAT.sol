@@ -2,10 +2,8 @@
 pragma solidity >=0.8.0 <0.9.0;
 
 import {Address} from "@openzeppelin/contracts/utils/Address.sol";
-import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {IERC6982} from "./interfaces/IERC6982.sol";
-import {IERC4907} from "./interfaces/IERC4907.sol";
 import {ERC721A} from "erc721a/contracts/ERC721A.sol";
 import {ERC4907A} from "erc721a/contracts/extensions/ERC4907A.sol";
 import {IGOAT} from "./interfaces/IGOAT.sol";
