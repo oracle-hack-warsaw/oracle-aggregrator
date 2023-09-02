@@ -9,7 +9,7 @@ const Home: NextPage = () => {
     <>
       <MetaHeader />
       <div className="container mx-auto p-6">
-        <h1 className="text-3xl font-bold mb-6">🐐 Welcome to G.O.A.T. - Groundbreaking Oracle Aggregator Technology</h1>
+        <h1 className="text-3xl font-bold mb-6">🐐 G.O.A.T. - Groundbreaking Oracle Aggregator Technology</h1>
 
         <div className="highlighted-section p-4 rounded-lg border-2 border-gray-300">
           <p className="mb-4">

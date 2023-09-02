@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { abi as GOATabi } from "../../hardhat/artifacts/contracts/GOAT.sol/GOAT.json";
+import { abi as GOATabi } from "~~/generated/GOAT.json";
 import { GOAT_ADDRESS } from "./oracles";
 import moment from "moment";
 import { NextPage } from "next";
@@ -114,7 +114,7 @@ const Inventory: NextPage = () => {
   );
 };
 
-function Modal({ content, onClose, isValidAddress, handleInputChange, handleProceed }) {
+function Modal({ content, onClose, isValidAddress, handleInputChange, handleProceed }: any) {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="modal-content">
