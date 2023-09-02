@@ -1,62 +1,86 @@
 import Link from "next/link";
 import type { NextPage } from "next";
-import { BugAntIcon, MagnifyingGlassIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { CubeTransparentIcon, Square3Stack3DIcon } from "@heroicons/react/24/outline";
 import { MetaHeader } from "~~/components/MetaHeader";
+import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (
     <>
       <MetaHeader />
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
-          <h1 className="text-center mb-8">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">Scaffold-ETH 2</span>
-          </h1>
-          <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold">packages/nextjs/pages/index.tsx</code>
-          </p>
-          <p className="text-center text-lg">
-            Edit your smart contract <code className="italic bg-base-300 text-base font-bold">YourContract.sol</code> in{" "}
-            <code className="italic bg-base-300 text-base font-bold">packages/hardhat/contracts</code>
-          </p>
-        </div>
+      <div className="container mx-auto p-6">
+        <h1 className="text-3xl font-bold mb-6">🐐 Welcome to G.O.A.T. - Groundbreaking Oracle Aggregator Technology</h1>
 
-        <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
-          <div className="flex justify-center items-center gap-12 flex-col sm:flex-row">
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <BugAntIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Tinker with your smart contract using the{" "}
-                <Link href="/debug" passHref className="link">
-                  Debug Contract
-                </Link>{" "}
-                tab.
-              </p>
+
+        <ul className="mb-6 space-y-4">
+          <li>
+            <Link href="/oracles">
+              <CubeTransparentIcon className="h-4 w-4" />
+              Oracles
+            </Link>
+          </li>
+          <li>
+            <Link href="/inventory">
+              <Square3Stack3DIcon className="h-4 w-4" />
+              Inventory
+            </Link>
+          </li>
+        </ul>
+
+        <div className="founders mb-6">
+          <h2 className="text-2xl mb-4">Meet the Founders</h2>
+
+          <div className="flex gap-6 justify-center">
+            <div className="founder flex flex-col items-center w-1/4">
+              <div className="image-placeholder w-32 h-32 bg-gray-300 mb-4">
+                <Image
+                    src={"/assets/founder_alex.png"}
+                    alt="founder_alex"
+                    layout="responsive"
+                    className="rounded"
+                    width={50}
+                    height={50}
+                />
+              </div>
+              <h3 className="mb-2">Aleksander (Alex)</h3>
+              <p className="text-sm mb-2 text-center">Aleksander (Alex) is a Full Stack Developer (~8+ y/o exp) skilled in a vast range of technologies, programming languages, architectures and tools, including web3.</p>
+              <a href="https://linkedin.com/in/aleksanderwojcik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <SparklesIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Experiment with{" "}
-                <Link href="/example-ui" passHref className="link">
-                  Example UI
-                </Link>{" "}
-                to build your own UI.
-              </p>
+
+            <div className="founder flex flex-col items-center w-1/4">
+              <div className="image-placeholder w-32 h-32 bg-gray-300 mb-4">
+                <Image
+                    src={"/assets/founder_arjan.jpg"}
+                    alt="founder_arjan"
+                    layout="responsive"
+                    className="rounded"
+                    width={50}
+                    height={50}
+                />
+              </div>
+              <h3 className="mb-2">Arjan van Hoogdalem</h3>
+              <p className="text-sm mb-2 text-center">Backend & smart contract developer. Game theory, defi, and iGaming enthusiast.</p>
+              <a href="https://twitter.com/arjanjohan/" target="_blank" rel="noopener noreferrer">Twitter</a>
             </div>
-            <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
-              <MagnifyingGlassIcon className="h-8 w-8 fill-secondary" />
-              <p>
-                Explore your local transactions with the{" "}
-                <Link href="/blockexplorer" passHref className="link">
-                  Block Explorer
-                </Link>{" "}
-                tab.
-              </p>
+
+            <div className="founder flex flex-col items-center w-1/4">
+              <div className="image-placeholder w-32 h-32 bg-gray-300 mb-4">
+                <Image
+                    src={"/assets/founder_alexe.jpg"}
+                    alt="founder_alexe"
+                    layout="responsive"
+                    className="rounded"
+                    width={50}
+                    height={50}
+                />
+              </div>
+              <h3 className="mb-2">Alexe Luca Spataru</h3>
+              <p className="text-sm mb-2 text-center">Web3 founder, smart contract guru, and blockchain advocate.</p>
+              <a href="https://twitter.com/urataps/" target="_blank" rel="noopener noreferrer">Twitter</a>
             </div>
           </div>
         </div>
+
       </div>
     </>
   );
