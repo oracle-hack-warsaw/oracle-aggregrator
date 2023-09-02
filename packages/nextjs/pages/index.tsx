@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 
         <div className="highlighted-section p-4 rounded-lg border-2 border-gray-300">
           <p className="mb-4">
-            🔥 Fantastic revelations for the crypto world! We've achieved integration with both <strong>Chronicle</strong> and <strong>ChainLink</strong>, showcasing our unparalleled dedication to delivering only the best. With G.O.A.T., you will be able to mint, rent NFTs and use NFTs to guard access to Oracle Providers Feeds.
+          Groundbreaking Oracle Aggregator Technology integrates with both <strong>Chronicle Protocol</strong> and <strong>RedStone</strong>. With G.O.A.T., you will be able to mint NFTs, rent NFTs and use NFTs to guard access to different oracle feeds.
           </p>
           <br/>
 
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
 
 
           <p className="mt-4">
-            So, what exactly is G.O.A.T.? We're a Groundbreaking Oracle Aggregator Technology. Through us, users can access various oracles from a single entry point, compare pricing, and make informed choices. On the flip side, oracle providers get a transparent platform to price their services based on real demand. As we stride forward, our goals are clear: to enhance product-market fit, incorporate as many Oracle Providers as possible, and cement the innovative idea of using NFTs for data feed access. The future looks promising, and with G.O.A.T., it looks revolutionary.
+            G.O.A.T. is a Groundbreaking Oracle Aggregator Technology. With G.O.A.T. users can access different oracles from one single entry point, compare pricing, and make informed decisions. On the other side, oracle providers get a transparent platform to price their services based on real demand. As we stride forward, our goals are clear: to enhance product-market fit, incorporate as many Oracle Providers as possible, and cement the innovative idea of using NFTs for data feed access. The future looks promising, and with G.O.A.T., it looks revolutionary.
           </p>
         </div>
 
