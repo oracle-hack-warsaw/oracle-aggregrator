@@ -123,6 +123,9 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       sepolia: 'FN1NSQ23ZPJ992WT9C4GNWA2RNAJDTGQX6',
+      alfajores: 'FN1NSQ23ZPJ992WT9C4GNWA2RNAJDTGQX6',
+      mantle: '266e97a3-6b1b-45b9-8c48-ac9888f6786b',
+      
     },
     customChains: [
       {
@@ -147,6 +150,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://explorer.testnet.mantle.xyz/api',
           browserURL: 'https://explorer.testnet.mantle.xyz',
+        },
+      },
+      {
+        network: 'alfajores',
+        chainId: 44787,
+        urls: {
+          apiURL: 'https://alfajores-forno.celo-testnet.org/api',
+          browserURL: "https://alfajores.celoscan.io",
         },
       },
     ],
