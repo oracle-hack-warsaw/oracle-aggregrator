@@ -1,5 +1,5 @@
 import React from "react";
-import { abi as GOATabi } from "../../hardhat/artifacts/contracts/GOAT.sol/GOAT.json";
+import { abi as GOATabi } from "~~/generated/GOAT.json";
 import { parseEther } from "viem";
 import { useAccount, useContractWrite } from "wagmi";
 import { GOAT_ADDRESS } from "~~/pages/oracles";
@@ -19,6 +19,7 @@ const MintButton = ({ oracleAddress, providerId }: MintButtonProps) => {
 
   return (
     <div>
+      {console.log(GOATabi)}
       {isLoading ? (
         <div className="loading loading-spinner loading-xs" />
       ) : (
