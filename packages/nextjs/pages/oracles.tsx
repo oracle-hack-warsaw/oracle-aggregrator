@@ -12,25 +12,81 @@ const Oracles: NextPage = () => {
   const doRent = useCallback(() => {
     // Placeholder for renting logic
   }, []);
+  // Extract all unique feed names and oracle display names
+  const allFeedNames = Array.from(new Set(oracleData.flatMap(oracle => oracle.feeds.map(feed => feed.displayName))));
+  const allOracleNames = oracleData.map(oracle => oracle.displayName);
 
+  // State to track the selected filters
+  const [selectedFeeds, setSelectedFeeds] = useState<string[]>([]);
+  const [selectedOracles, setSelectedOracles] = useState<string[]>([]);
+
+  const toggleFeedFilter = (feedName: string) => {
+    if (selectedFeeds.includes(feedName)) {
+      setSelectedFeeds(prev => prev.filter(feed => feed !== feedName));
+    } else {
+      setSelectedFeeds(prev => [...prev, feedName]);
+    }
+  };
+
+  const toggleOracleFilter = (oracleName: string) => {
+    if (selectedOracles.includes(oracleName)) {
+      setSelectedOracles(prev => prev.filter(oracle => oracle !== oracleName));
+    } else {
+      setSelectedOracles(prev => [...prev, oracleName]);
+    }
+  };
   return (
       <>
         <MetaHeader title="G.O.A.T | Oracles" description="Available Oracles.">
-          {/* ... */}
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
         </MetaHeader>
         <div className="container mx-auto p-8 w-full">
+          {/* Oracle Filters */}
+          <div className="mb-4 flex flex-wrap">
+            {allOracleNames.map(oracleName => (
+                <span
+                    key={oracleName}
+                    className={`cursor-pointer px-3 py-1 border rounded-lg m-1 ${selectedOracles.includes(oracleName) ? 'bg-gray-400' : ''}`}
+                    onClick={() => toggleOracleFilter(oracleName)}
+                >
+              {oracleName}
+            </span>
+            ))}
+          </div>
+
+          {/* Feed Filters */}
+          <div className="mb-4 flex flex-wrap">
+            {allFeedNames.map(feedName => (
+                <span
+                    key={feedName}
+                    className={`cursor-pointer px-3 py-1 border rounded-lg m-1 ${selectedFeeds.includes(feedName) ? 'bg-gray-300' : ''}`}
+                    onClick={() => toggleFeedFilter(feedName)}
+                >
+              {feedName}
+            </span>
+            ))}
+          </div>
+
+          {/* Table */}
           <table className="w-full">
             <thead>
               <tr className="text-left border-b">
-                <th className="p-4">Oracle Provider</th>
-                <th className="p-4">Feed</th>
-                <th className="p-4">Last Updated</th>
+                <th className="p-4 w-1/4">Oracle Provider</th>
+                <th className="p-4 w-1/6">Feed</th>
+                <th className="p-4 w-1/6">Last Updated</th>
+                <th className="p-4 w-1/6">Mint Price</th>
                 <th className="p-4 w-1/4">Action</th>
               </tr>
             </thead>
             <tbody>
-              {oracleData.map((oracle, oIndex) => (
-                  oracle.feeds.map((feed, fIndex) => (
+              {oracleData
+              .filter(oracle => selectedOracles.length === 0 || selectedOracles.includes(oracle.displayName))
+              .map((oracle, oIndex) => (
+                  oracle.feeds
+                  // Filter based on selected feeds
+                  .filter(feed => selectedFeeds.length === 0 || selectedFeeds.includes(feed.displayName))
+                  .map((feed, fIndex) => (
                       <tr key={`${oIndex}-${fIndex}`}>
                         <td className={`p-4 border-b-2 ${oracle.cssClass}`}>
                           <div className="p-2 rounded-lg">
@@ -46,14 +102,14 @@ const Oracles: NextPage = () => {
                         <td className="p-4 border-b-2">
                           {moment(feed.lastUpdatedLong).fromNow()}
                         </td>
+                        <td className="p-4 border-b-2">
+                            {feed.displayMintPrice}
+                        </td>
                         <td className="p-4 border-b-2 flex justify-between items-center">
                           <button onClick={doMint} className="btn btn-accent w-1/2 relative mr-2">
                             Mint
-                            <span className="absolute bottom-0 left-0 right-0 text-xs bg-opacity-70 p-1">
-                              {feed.displayMintPrice}
-                            </span>
                           </button>
-                          <button onClick={doRent} className="btn btn-secondary w-1/2" disabled>
+                          <button onClick={doRent} className="btn btn-secondary w-1/2 relative" disabled>
                             <span className="tooltip ml-2" title="Minimal design - will work in future">Rent</span>
                           </button>
                         </td>
