@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import { IERC6982 } from "./IERC6982.sol";
 import "erc721a/contracts/ERC721A.sol";
 
-contract OracleToken is ERC721A, IERC6982, Ownable {
+contract GoatToken is ERC721A, IERC6982, Ownable {
     using Counters for Counters.Counter;
 
 	mapping(uint256 => address) public tokenIdToTargetContract;
@@ -22,7 +22,7 @@ contract OracleToken is ERC721A, IERC6982, Ownable {
     //     CONSTRUCTOR AND MODIFIER FUNCTIONS
     // ========================================
 
-    constructor() ERC721A("OracleToken", "OT") {
+    constructor() ERC721A("GroundbreakingOracleAggregatorToken", "GOAT") {
 		defaultLockedStatus = false;
 		emit DefaultLocked(defaultLockedStatus);
 	}
