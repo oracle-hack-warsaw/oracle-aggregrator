@@ -89,7 +89,7 @@ const Inventory: NextPage = () => {
                     )}
                   </div>
                 </div>
-                <div className="flex-grow mt-2" onClick={() => handleNftClick(nft)}>
+                <div className="flex-grow mt-2 cursor-pointer" onClick={() => handleNftClick(nft)}>
                   <Image
                       src={nft.imgSrc && nft.imgSrc !== "" ? nft.imgSrc : "/assets/nameless.png"}
                       alt="NFT"
