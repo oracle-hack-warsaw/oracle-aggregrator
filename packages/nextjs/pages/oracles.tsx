@@ -12,14 +12,42 @@ const Oracles: NextPage = () => {
   const doRent = useCallback(() => {
     // Placeholder for renting logic
   }, []);
+  // Extract all unique feed names
+  const allFeedNames = Array.from(new Set(oracleData.flatMap(oracle => oracle.feeds.map(feed => feed.displayName))));
 
+  // State to track the selected filters
+  const [selectedFeeds, setSelectedFeeds] = useState<string[]>([]);
+
+  const toggleFeedFilter = (feedName: string) => {
+    if (selectedFeeds.includes(feedName)) {
+      setSelectedFeeds(prev => prev.filter(feed => feed !== feedName));
+    } else {
+      setSelectedFeeds(prev => [...prev, feedName]);
+    }
+  };
   return (
       <>
         <MetaHeader title="G.O.A.T | Oracles" description="Available Oracles.">
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap" rel="stylesheet" />
         </MetaHeader>
+
+          {/* Filters */}
         <div className="container mx-auto p-8 w-full">
+
+          <div className="mb-4 flex flex-wrap">
+            {allFeedNames.map(feedName => (
+                <span
+                    key={feedName}
+                    className={`cursor-pointer px-3 py-1 border rounded-lg m-1 ${selectedFeeds.includes(feedName) ? 'bg-gray-300' : ''}`}
+                    onClick={() => toggleFeedFilter(feedName)}
+                >
+              {feedName}
+            </span>
+            ))}
+          </div>
+
+
           <table className="w-full">
             <thead>
               <tr className="text-left border-b">
@@ -32,7 +60,11 @@ const Oracles: NextPage = () => {
             </thead>
             <tbody>
               {oracleData.map((oracle, oIndex) => (
-                  oracle.feeds.map((feed, fIndex) => (
+                  oracle.feeds
+                  // Filter based on selected feeds
+                  .filter(feed => selectedFeeds.length === 0 || selectedFeeds.includes(feed.displayName))
+
+                  .map((feed, fIndex) => (
                       <tr key={`${oIndex}-${fIndex}`}>
                         <td className={`p-4 border-b-2 ${oracle.cssClass}`}>
                           <div className="p-2 rounded-lg">
