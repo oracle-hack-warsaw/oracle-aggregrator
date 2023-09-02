@@ -122,9 +122,9 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      sepolia: 'FN1NSQ23ZPJ992WT9C4GNWA2RNAJDTGQX6',
-      alfajores: 'FN1NSQ23ZPJ992WT9C4GNWA2RNAJDTGQX6',
-      mantle: '266e97a3-6b1b-45b9-8c48-ac9888f6786b',
+      sepolia: '',
+      alfajores: '',
+      mantle: '',
       
     },
     customChains: [

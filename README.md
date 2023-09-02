@@ -44,4 +44,4 @@ This project was build at EthWarsaw 2023 by:
 
 - [Alexe Spataru](twitter.com/urataps/)
 - [arjanjohan](twitter.com/arjanjohan/)
-- [Aleksander Wójcik](twitter.com/aleksan64074481)
+- [Aleksander Wójcik](linkedin.com/in/aleksanderwojcik/)
