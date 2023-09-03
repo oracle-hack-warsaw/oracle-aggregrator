@@ -10,8 +10,9 @@ import {ERC4907A} from "erc721a/contracts/extensions/ERC4907A.sol";
 import {IGOAT} from "./interfaces/IGOAT.sol";
 import {IChronicle} from "./interfaces/IChronicle.sol";
 import {IChainlinkOracle} from "./interfaces/IChainlinkOracle.sol";
+import {MainDemoConsumerBase} from "@redstone-finance/evm-connector/contracts/data-services/MainDemoConsumerBase.sol";
 
-contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
+contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable, MainDemoConsumerBase {
 	using Address for address;
 	using EnumerableSet for EnumerableSet.AddressSet;
 
@@ -64,7 +65,10 @@ contract GOAT is IGOAT, IERC6982, ERC4907A, Ownable {
 			uint256 value = uint256(answer) * 10 ** (18 - feedDecimals);
 
 			return (value, updatedAt);
-		} else { // todo: redstone
+		} else if (oracle.providerId == OracleProvider.Redstone) {
+			return (getOracleNumericValueFromTxMsg(bytes32(bytes20(oracle.oracle))), block.timestamp);
+		}
+		else{			
 			revert("Invalid oracle provider");
 		}
 	}

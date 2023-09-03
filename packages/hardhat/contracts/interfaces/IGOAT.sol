@@ -8,7 +8,8 @@ interface IGOAT {
 
     enum OracleProvider {
 		Chronicle,
-		Chainlink
+		Chainlink,
+        Redstone
 	}
 
 	struct OracleId {
